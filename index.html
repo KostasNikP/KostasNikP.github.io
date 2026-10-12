@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07111f">
+  <meta name="description" content="Portfolio of Konstantinos Nikolakopoulos, Computer Science and Telecommunications graduate focused on software and Flutter development.">
+  <title>Konstantinos Nikolakopoulos | Software Developer</title>
+  <style>
+    :root{--bg:#07111f;--panel:#0c1a2b;--panel2:#102238;--text:#f2f7ff;--muted:#b4c5d9;--blue:#38a6ff;--line:#20354c;--mint:#73e0c1}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 78% 0%,#102e51 0%,var(--bg) 42%);color:var(--text);font-family:Inter,Segoe UI,Arial,sans-serif;line-height:1.65}
+    a{color:inherit;text-decoration:none}a:focus-visible,button:focus-visible{outline:3px solid var(--mint);outline-offset:4px}
+    .wrap{width:min(1120px,calc(100% - 40px));margin:auto}.nav{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:22px 0;border-bottom:1px solid var(--line)}
+    .brand{font-weight:800;letter-spacing:-.02em}.brand span{color:var(--blue);margin-right:10px;font-size:1.35rem}.navlinks{display:flex;gap:24px;color:var(--muted);font-size:.95rem}.navlinks a:hover,.textlink:hover{color:var(--blue)}
+    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:55px;align-items:center;padding:86px 0 76px}.eyebrow{color:var(--blue);font-weight:750;letter-spacing:.18em;text-transform:uppercase;font-size:.8rem}
+    h1{font-size:clamp(2.5rem,6vw,4.8rem);line-height:1.04;letter-spacing:-.055em;margin:15px 0 22px}h1 span{color:var(--blue)}.lead{font-size:1.12rem;color:var(--muted);max-width:650px}
+    .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}.btn{display:inline-flex;align-items:center;justify-content:center;border:1px solid #43617e;border-radius:12px;padding:11px 18px;font-weight:700;transition:.2s}.btn.primary{background:var(--blue);border-color:var(--blue);color:#04101d}.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+    .codecard{border:1px solid #29425e;border-radius:20px;background:linear-gradient(145deg,#102238dd,#091522dd);padding:26px;box-shadow:0 22px 65px #0004;transform:rotate(1deg)}.codecard .dots{display:flex;gap:7px;margin-bottom:25px}.dot{width:9px;height:9px;border-radius:50%;background:#ff7b72}.dot:nth-child(2){background:#f8ca65}.dot:nth-child(3){background:#70d9a5}
+    pre{margin:0;white-space:pre-wrap;color:#d6e8ff;font: .93rem/1.9 ui-monospace,SFMono-Regular,Consolas,monospace}.c-blue{color:#58baff}.c-green{color:#83e3c1}.c-purple{color:#c6a6ff}
+    section{padding:62px 0;border-top:1px solid var(--line)}.sectionhead{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:28px}h2{font-size:clamp(1.7rem,3vw,2.4rem);line-height:1.2;letter-spacing:-.035em;margin:0}h3{margin:0 0 10px;font-size:1.18rem}.muted{color:var(--muted)}.aboutgrid{display:grid;grid-template-columns:1fr 1fr;gap:48px}.facts{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}.fact,.tag{border:1px solid var(--line);background:#0a1828;border-radius:999px;padding:7px 12px;color:#c9d8e9;font-size:.86rem}
+    .skills{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.skillbox,.project{border:1px solid var(--line);background:linear-gradient(150deg,#0d1d30,#091522);border-radius:16px;padding:22px}.skillbox p{margin:8px 0 0;color:var(--muted)}
+    .project{display:grid;grid-template-columns:1.05fr .95fr;gap:28px;padding:28px}.project p{color:var(--muted)}.tags{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}.tag{font-size:.8rem;padding:5px 10px;color:#a8d9ff;border-color:#244b70}
+    .phones{display:grid;grid-template-columns:repeat(3,1fr);align-items:center;gap:12px;max-width:390px;margin:auto}.phone{background:#040b14;border:2px solid #3a526b;border-radius:23px;padding:8px;height:220px;box-shadow:0 14px 28px #0004}.notch{width:42%;height:8px;background:#26394c;border-radius:0 0 8px 8px;margin:0 auto 12px}.screen{height:calc(100% - 20px);border-radius:14px;background:linear-gradient(160deg,#102a46,#07111f);padding:10px 7px;font-size:.62rem;overflow:hidden}.mocktitle{font-weight:800;font-size:.8rem;margin-bottom:12px}.mockbutton{background:var(--blue);color:#05111e;border-radius:5px;text-align:center;padding:5px;margin:9px 0;font-weight:800}.producttile{height:48px;border-radius:7px;background:#dceafa;margin:6px 0;display:flex;align-items:center;justify-content:center;color:#193451;font-size:1rem}.minirow{height:8px;border-radius:4px;background:#29445f;margin:7px 0}.projectlinks{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}.textlink{color:var(--blue);font-weight:750}.contactbox{display:flex;align-items:center;justify-content:space-between;gap:22px;border:1px solid var(--line);background:var(--panel);border-radius:18px;padding:28px}.footer{padding:26px 0 40px;color:#8196ad;font-size:.88rem;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+    @media(max-width:800px){.nav{align-items:flex-start;flex-direction:column}.navlinks{gap:16px;flex-wrap:wrap}.hero{grid-template-columns:1fr;gap:35px;padding:58px 0}.aboutgrid,.project{grid-template-columns:1fr}.skills{grid-template-columns:1fr 1fr}.project{padding:20px}.phones{max-width:330px}.contactbox{align-items:flex-start;flex-direction:column}}
+    @media(max-width:520px){.wrap{width:min(100% - 28px,1120px)}.skills{grid-template-columns:1fr}.navlinks{font-size:.88rem;gap:12px}.phone{height:195px;padding:6px}.screen{padding:7px 5px}.phones{gap:7px}.sectionhead{align-items:flex-start;flex-direction:column}section{padding:46px 0}}
+  </style>
+</head>
+<body>
+  <header class="wrap nav">
+    <a class="brand" href="#home"><span>KN</span> Konstantinos Nikolakopoulos</a>
+    <nav class="navlinks" aria-label="Main navigation">
+      <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#contact">Contact</a>
+    </nav>
+  </header>
+  <main>
+    <section class="wrap hero" id="home" style="border-top:0">
+      <div>
+        <div class="eyebrow">Software Developer</div>
+        <h1>Hi, I'm Konstantinos <span>Nikolakopoulos.</span></h1>
+        <p class="lead">Computer Science and Telecommunications graduate from the University of Ioannina, interested in building useful software and user-friendly mobile experiences with Flutter and Dart.</p>
+        <div class="actions">
+          <a class="btn primary" href="#projects">Explore my projects ↘</a>
+          <a class="btn" href="https://github.com/KostasNikP" target="_blank" rel="noreferrer">GitHub profile ↗</a>
+        </div>
+      </div>
+      <div class="codecard" aria-label="Code-inspired illustration">
+        <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+        <pre><span class="c-purple">class</span> Developer {
+  <span class="c-blue">final</span> passion = <span class="c-green">'building'</span>;
+  <span class="c-blue">final</span> tools = [
+    <span class="c-green">'Flutter'</span>,
+    <span class="c-green">'Dart'</span>,
+    <span class="c-green">'Git'</span>,
+    <span class="c-green">'SQL'</span>,
+  ];
+
+  <span class="c-purple">void</span> keepLearning() {
+    build();
+    test();
+    improve();
+  }
+}</pre>
+      </div>
+    </section>
+    <section id="about">
+      <div class="wrap aboutgrid">
+        <div>
+          <div class="sectionhead"><h2>About me</h2></div>
+          <p class="muted">I graduated in Computer Science and Telecommunications from the University of Ioannina (2020–2025). I enjoy turning ideas into practical applications, learning new technologies, and improving how software is structured and used.</p>
+          <p class="muted">My Flutter project gave me hands-on practice with mobile UI, application state, navigation, and common e-commerce flows. I am eager to keep developing my skills, contribute to a collaborative team, and learn from real-world software projects.</p>
+          <div class="facts"><span class="fact">🎓 University of Ioannina</span><span class="fact">📍 Achaia, Greece</span><span class="fact">🌐 English — B2</span></div>
+        </div>
+        <div id="skills">
+          <div class="sectionhead"><h2>Skills</h2></div>
+          <div class="skills">
+            <div class="skillbox"><h3>Mobile development</h3><p>Flutter · Dart · Provider</p></div>
+            <div class="skillbox"><h3>Programming</h3><p>Python · C · C++ · Java</p></div>
+            <div class="skillbox"><h3>Web & data</h3><p>HTML · CSS · SQL</p></div>
+            <div class="skillbox"><h3>Tools</h3><p>Git · GitHub · VS Code</p></div>
+            <div class="skillbox"><h3>Development</h3><p>Debugging · UI implementation · State management</p></div>
+            <div class="skillbox"><h3>Teamwork</h3><p>Problem solving · Communication · Continuous learning</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="projects">
+      <div class="wrap">
+        <div class="sectionhead"><h2>Featured project</h2><span class="muted">Flutter · Dart</span></div>
+        <article class="project">
+          <div>
+            <h3>ShopApp — Flutter E-Commerce App</h3>
+            <p>A personal e-commerce mobile application built with Flutter and Dart, focused on a clean interface and familiar shopping workflows.</p>
+            <p>Features include user sign-in and guest UI, product sections, search and filtering, cart quantity controls with a live total, checkout-related UI, delivery progress, and a profile screen with theme support.</p>
+            <div class="tags"><span class="tag">Flutter</span><span class="tag">Dart</span><span class="tag">Provider</span><span class="tag">E-commerce UI</span><span class="tag">State management</span></div>
+            <div class="projectlinks"><a class="textlink" href="https://github.com/KostasNikP/app" target="_blank" rel="noreferrer">View source code on GitHub ↗</a></div>
+          </div>
+          <div class="phones" aria-label="Illustrative mobile app screen previews">
+            <div class="phone"><div class="notch"></div><div class="screen"><div class="mocktitle">ShopApp</div><div class="producttile">🛍️</div><div class="mockbutton">Sign in</div><div class="minirow"></div><div class="minirow"></div></div></div>
+            <div class="phone"><div class="notch"></div><div class="screen"><div class="mocktitle">Featured</div><div class="producttile">👟</div><div class="producttile">🎒</div><div class="minirow"></div><div class="minirow"></div></div></div>
+            <div class="phone"><div class="notch"></div><div class="screen"><div class="mocktitle">Your cart</div><div class="minirow"></div><div class="minirow"></div><div class="minirow"></div><div class="mockbutton">Checkout</div></div></div>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section id="contact">
+      <div class="wrap contactbox">
+        <div><h2>Let's connect</h2><p class="muted">Interested in software development opportunities and learning from a collaborative team.</p></div>
+        <div class="actions" style="margin-top:0"><a class="btn primary" href="https://github.com/KostasNikP" target="_blank" rel="noreferrer">GitHub ↗</a><a class="btn" href="https://www.linkedin.com/in/konstantinos-nikolakopoulos-986a5a364/" target="_blank" rel="noreferrer">LinkedIn ↗</a></div>
+      </div>
+    </section>
+  </main>
+  <footer class="wrap footer"><span>© <span id="year"></span> Konstantinos Nikolakopoulos</span><span>Built with HTML & CSS</span></footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
