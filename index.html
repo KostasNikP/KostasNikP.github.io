@@ -41,15 +41,14 @@
   --card-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
 }
 
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:84px;-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--fg);font:400 1.02rem/1.7 var(--sans);-webkit-font-smoothing:antialiased;transition:background .3s,color .3s;overflow-x:hidden}
-::selection{background:var(--acc);color:#fff}
-a{color:inherit}
-:focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:6px}
-.wrap{max-width:720px;margin:0 auto;padding:0 24px}
-.mono{font-family:var(--mono)}
-.muted{color:var(--muted)}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 84px; -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 400 1.02rem/1.7 var(--sans); -webkit-font-smoothing: antialiased; transition: background .3s, color .3s; overflow-x: hidden; }
+::selection { background: var(--acc); color: #fff; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--acc); outline-offset: 3px; border-radius: 6px; }
+.mono { font-family: var(--mono); }
+.muted { color: var(--muted); }
 
 /* Dynamic Animated Background */
 .bg-gradient {
@@ -341,11 +340,9 @@ footer {
   flex-wrap: wrap;
 }
 
-/* Scroll Animation Reveal */
-.rv { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
-.rv.in { opacity: 1; transform: none; }
+/* Reveal style fallback */
+.rv { opacity: 1; transform: none; }
 
-/* Responsive Media Queries */
 @media(max-height: 780px) {
   .side { padding-top: 60px; padding-bottom: 28px; }
   .snav { margin-top: 20px; }
@@ -358,11 +355,6 @@ footer {
   main section { padding-bottom: 48px; }
   .row { grid-template-columns: 1fr; gap: 6px; }
   .tools { top: 14px; right: 14px; }
-}
-@media(prefers-reduced-motion: reduce) {
-  * { animation: none !important; transition: none !important; }
-  html { scroll-behavior: auto; }
-  .rv { opacity: 1; transform: none; }
 }
 </style>
 </head>
@@ -525,89 +517,41 @@ footer {
     </section>
 
     <footer>
-      <span>© <span id="year"></span> Konstantinos Nikolakopoulos</span>
+      <span>© <span id="year">2026</span> Konstantinos Nikolakopoulos</span>
       <span data-en="Hand-crafted Portfolio" data-el="Γραμμένο στο χέρι portfolio">Hand-crafted Portfolio</span>
     </footer>
   </main>
 </div>
 
 <script>
-(function(){
+document.addEventListener('DOMContentLoaded', function() {
   var root = document.documentElement;
-  var $ = function(s){ return document.querySelector(s); };
-  var $$ = function(s){ return Array.prototype.slice.call(document.querySelectorAll(s)); };
-  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var ls = null; try { ls = window.localStorage; } catch(e) {}
-  
-  function get(k){ try { return ls && ls.getItem(k); } catch(e) { return null; } }
-  function set(k,v){ try { ls && ls.setItem(k,v); } catch(e) {} }
-
   var lang = 'en';
-  $('#year').textContent = new Date().getFullYear();
+  
+  var yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  /* Theme Control */
-  var meta = $('meta[name=theme-color]');
-  function setTheme(t) {
-    root.setAttribute('data-theme', t);
-    meta.setAttribute('content', t === 'dark' ? '#0b0f17' : '#f8fafc');
-    set('theme', t);
+  var themeBtn = document.getElementById('theme');
+  if (themeBtn) {
+    themeBtn.onclick = function() {
+      var nextTheme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', nextTheme);
+    };
   }
-  function toggleTheme() {
-    setTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
-  }
-  setTheme(get('theme') || ((window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light'));
-  $('#theme').onclick = toggleTheme;
 
-  /* Language Switcher */
-  function setLang(l) {
-    lang = l;
-    root.lang = l;
-    $$('[data-en]').forEach(function(e) {
-      e.innerHTML = e.getAttribute('data-' + l) || e.getAttribute('data-en');
-    });
-    $('#lang').textContent = l === 'en' ? 'EL' : 'EN';
-    set('lang', l);
-    document.title = l === 'en' ? 'Konstantinos Nikolakopoulos | Software Developer' : 'Κωνσταντίνος Νικολακόπουλος | Software Developer';
+  var langBtn = document.getElementById('lang');
+  if (langBtn) {
+    langBtn.onclick = function() {
+      lang = lang === 'en' ? 'el' : 'en';
+      var elements = document.querySelectorAll('[data-en]');
+      for (var i = 0; i < elements.length; i++) {
+        var el = elements[i];
+        el.innerHTML = el.getAttribute('data-' + lang) || el.getAttribute('data-en');
+      }
+      langBtn.textContent = lang === 'en' ? 'EL' : 'EN';
+    };
   }
-  function toggleLang() { setLang(lang === 'en' ? 'el' : 'en'); }
-  $('#lang').onclick = toggleLang;
-
-  /* Scroll-Spy for Navigation */
-  (function(){
-    var map = { about:'about', skills:'skills', project:'project', experience:'experience', education:'education', more:'education', contact:'contact' };
-    var links = $$('.snav a');
-    var secs = Object.keys(map).map(function(id){ return document.getElementById(id); }).filter(Boolean);
-    
-    function mark(id) {
-      links.forEach(function(a){
-        a.classList.toggle('active', a.getAttribute('data-spy') === map[id]);
-      });
-    }
-    
-    if('IntersectionObserver' in window){
-      var so = new IntersectionObserver(function(es){
-        es.forEach(function(e){ if(e.isIntersecting) mark(e.target.id); });
-      }, { rootMargin: '-30% 0px -60% 0px' });
-      secs.forEach(function(el){ so.observe(el); });
-    }
-  })();
-
-  /* Scroll Reveal Animation */
-  var rv = $$('.rv');
-  if('IntersectionObserver' in window && !reduce) {
-    var io = new IntersectionObserver(function(es){
-      es.forEach(function(e){
-        if(e.isIntersecting) {
-          e.target.classList.add('in');
-          io.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.08 });
-    rv.forEach(function(e){ io.observe(e); });
-  } else {
-    rv.forEach(function(e){ e.classList.add('in'); });
-  }
-})();
+});
 </script>
 </body>
 </html>
