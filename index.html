@@ -1,115 +1,384 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#07111f">
-  <meta name="description" content="Portfolio of Konstantinos Nikolakopoulos, Computer Science and Telecommunications graduate focused on software and Flutter development.">
-  <title>Konstantinos Nikolakopoulos | Software Developer</title>
-  <style>
-    :root{--bg:#07111f;--panel:#0c1a2b;--panel2:#102238;--text:#f2f7ff;--muted:#b4c5d9;--blue:#38a6ff;--line:#20354c;--mint:#73e0c1}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 78% 0%,#102e51 0%,var(--bg) 42%);color:var(--text);font-family:Inter,Segoe UI,Arial,sans-serif;line-height:1.65}
-    a{color:inherit;text-decoration:none}a:focus-visible,button:focus-visible{outline:3px solid var(--mint);outline-offset:4px}
-    .wrap{width:min(1120px,calc(100% - 40px));margin:auto}.nav{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:22px 0;border-bottom:1px solid var(--line)}
-    .brand{font-weight:800;letter-spacing:-.02em}.brand span{color:var(--blue);margin-right:10px;font-size:1.35rem}.navlinks{display:flex;gap:24px;color:var(--muted);font-size:.95rem}.navlinks a:hover,.textlink:hover{color:var(--blue)}
-    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:55px;align-items:center;padding:86px 0 76px}.eyebrow{color:var(--blue);font-weight:750;letter-spacing:.18em;text-transform:uppercase;font-size:.8rem}
-    h1{font-size:clamp(2.5rem,6vw,4.8rem);line-height:1.04;letter-spacing:-.055em;margin:15px 0 22px}h1 span{color:var(--blue)}.lead{font-size:1.12rem;color:var(--muted);max-width:650px}
-    .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}.btn{display:inline-flex;align-items:center;justify-content:center;border:1px solid #43617e;border-radius:12px;padding:11px 18px;font-weight:700;transition:.2s}.btn.primary{background:var(--blue);border-color:var(--blue);color:#04101d}.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
-    .codecard{border:1px solid #29425e;border-radius:20px;background:linear-gradient(145deg,#102238dd,#091522dd);padding:26px;box-shadow:0 22px 65px #0004;transform:rotate(1deg)}.codecard .dots{display:flex;gap:7px;margin-bottom:25px}.dot{width:9px;height:9px;border-radius:50%;background:#ff7b72}.dot:nth-child(2){background:#f8ca65}.dot:nth-child(3){background:#70d9a5}
-    pre{margin:0;white-space:pre-wrap;color:#d6e8ff;font: .93rem/1.9 ui-monospace,SFMono-Regular,Consolas,monospace}.c-blue{color:#58baff}.c-green{color:#83e3c1}.c-purple{color:#c6a6ff}
-    section{padding:62px 0;border-top:1px solid var(--line)}.sectionhead{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:28px}h2{font-size:clamp(1.7rem,3vw,2.4rem);line-height:1.2;letter-spacing:-.035em;margin:0}h3{margin:0 0 10px;font-size:1.18rem}.muted{color:var(--muted)}.aboutgrid{display:grid;grid-template-columns:1fr 1fr;gap:48px}.facts{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}.fact,.tag{border:1px solid var(--line);background:#0a1828;border-radius:999px;padding:7px 12px;color:#c9d8e9;font-size:.86rem}
-    .skills{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.skillbox,.project{border:1px solid var(--line);background:linear-gradient(150deg,#0d1d30,#091522);border-radius:16px;padding:22px}.skillbox p{margin:8px 0 0;color:var(--muted)}
-    .project{display:grid;grid-template-columns:1.05fr .95fr;gap:28px;padding:28px}.project p{color:var(--muted)}.tags{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}.tag{font-size:.8rem;padding:5px 10px;color:#a8d9ff;border-color:#244b70}
-    .phones{display:grid;grid-template-columns:repeat(3,1fr);align-items:center;gap:12px;max-width:390px;margin:auto}.phone{background:#040b14;border:2px solid #3a526b;border-radius:23px;padding:8px;height:220px;box-shadow:0 14px 28px #0004}.notch{width:42%;height:8px;background:#26394c;border-radius:0 0 8px 8px;margin:0 auto 12px}.screen{height:calc(100% - 20px);border-radius:14px;background:linear-gradient(160deg,#102a46,#07111f);padding:10px 7px;font-size:.62rem;overflow:hidden}.mocktitle{font-weight:800;font-size:.8rem;margin-bottom:12px}.mockbutton{background:var(--blue);color:#05111e;border-radius:5px;text-align:center;padding:5px;margin:9px 0;font-weight:800}.producttile{height:48px;border-radius:7px;background:#dceafa;margin:6px 0;display:flex;align-items:center;justify-content:center;color:#193451;font-size:1rem}.minirow{height:8px;border-radius:4px;background:#29445f;margin:7px 0}.projectlinks{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}.textlink{color:var(--blue);font-weight:750}.contactbox{display:flex;align-items:center;justify-content:space-between;gap:22px;border:1px solid var(--line);background:var(--panel);border-radius:18px;padding:28px}.footer{padding:26px 0 40px;color:#8196ad;font-size:.88rem;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
-    @media(max-width:800px){.nav{align-items:flex-start;flex-direction:column}.navlinks{gap:16px;flex-wrap:wrap}.hero{grid-template-columns:1fr;gap:35px;padding:58px 0}.aboutgrid,.project{grid-template-columns:1fr}.skills{grid-template-columns:1fr 1fr}.project{padding:20px}.phones{max-width:330px}.contactbox{align-items:flex-start;flex-direction:column}}
-    @media(max-width:520px){.wrap{width:min(100% - 28px,1120px)}.skills{grid-template-columns:1fr}.navlinks{font-size:.88rem;gap:12px}.phone{height:195px;padding:6px}.screen{padding:7px 5px}.phones{gap:7px}.sectionhead{align-items:flex-start;flex-direction:column}section{padding:46px 0}}
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#070b14">
+<meta name="description" content="Portfolio of Konstantinos Nikolakopoulos — Computer Science & Telecommunications graduate, Flutter and software developer.">
+<title>Konstantinos Nikolakopoulos | Software Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#070b14;--bg2:#0b1220;--card:rgba(255,255,255,.04);--card-b:rgba(255,255,255,.09);
+  --text:#eef3fb;--muted:#9fb0c6;--a1:#5b8cff;--a2:#22d3ee;--a3:#a78bfa;--ok:#34d399;
+  --grad:linear-gradient(120deg,var(--a1),var(--a2) 55%,var(--a3));
+  --shadow:0 20px 60px rgba(0,0,0,.45);
+}
+:root[data-theme="light"]{
+  --bg:#f6f8fc;--bg2:#eaf0fa;--card:rgba(255,255,255,.75);--card-b:rgba(20,40,80,.1);
+  --text:#0d1a2f;--muted:#51627a;--a1:#2f6bff;--a2:#0891b2;--a3:#7c3aed;--ok:#059669;
+  --shadow:0 18px 50px rgba(30,60,120,.15);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;line-height:1.65;overflow-x:hidden;transition:background .3s,color .3s}
+body::before,body::after{content:"";position:fixed;z-index:-1;border-radius:50%;filter:blur(110px);opacity:.35;pointer-events:none}
+body::before{width:520px;height:520px;background:var(--a1);top:-160px;right:-120px}
+body::after{width:460px;height:460px;background:var(--a3);bottom:-180px;left:-140px;opacity:.22}
+:root[data-theme="light"] body::before,:root[data-theme="light"] body::after{opacity:.18}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--a2);outline-offset:3px;border-radius:8px}
+.wrap{width:min(1120px,calc(100% - 40px));margin:auto}
+.grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* nav */
+header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);background:color-mix(in srgb,var(--bg) 72%,transparent);border-bottom:1px solid var(--card-b)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:68px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.02em}
+.logo{width:36px;height:36px;border-radius:11px;background:var(--grad);display:grid;place-items:center;color:#06101f;font-size:.9rem;font-weight:800}
+.links{display:flex;gap:6px;align-items:center}
+.links a{padding:8px 13px;border-radius:10px;color:var(--muted);font-size:.93rem;font-weight:500;transition:.2s}
+.links a:hover{color:var(--text);background:var(--card)}
+.tools{display:flex;gap:8px}
+.icon-btn{border:1px solid var(--card-b);background:var(--card);color:var(--text);height:38px;min-width:38px;padding:0 12px;border-radius:10px;cursor:pointer;font:600 .82rem Inter,sans-serif;transition:.2s}
+.icon-btn:hover{border-color:var(--a1);transform:translateY(-1px)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center;padding:96px 0 80px}
+.pill{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--card-b);background:var(--card);padding:7px 14px;border-radius:999px;font-size:.84rem;color:var(--muted)}
+.pulse{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 0 var(--ok);animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 9px transparent}100%{box-shadow:0 0 0 0 transparent}}
+h1{font-size:clamp(2.6rem,6.2vw,4.9rem);line-height:1.03;letter-spacing:-.055em;margin:22px 0 20px;font-weight:800}
+.lead{font-size:1.14rem;color:var(--muted);max-width:620px;margin:0}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:13px;font-weight:700;border:1px solid var(--card-b);background:var(--card);transition:.2s;cursor:pointer;font-size:.97rem}
+.btn:hover{transform:translateY(-2px);border-color:var(--a1)}
+.btn.primary{background:var(--grad);color:#05101f;border:0;box-shadow:0 10px 30px rgba(91,140,255,.35)}
+.btn.primary:hover{filter:brightness(1.08)}
+.stats{display:flex;flex-wrap:wrap;gap:34px;margin-top:44px}
+.stat b{display:block;font-size:1.7rem;letter-spacing:-.03em}
+.stat span{font-size:.84rem;color:var(--muted)}
+
+.term{border:1px solid var(--card-b);border-radius:20px;background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.02));box-shadow:var(--shadow);overflow:hidden;transform:rotate(1.2deg);transition:.4s}
+.term:hover{transform:rotate(0)}
+.term-bar{display:flex;gap:7px;align-items:center;padding:14px 18px;border-bottom:1px solid var(--card-b)}
+.term-bar i{width:10px;height:10px;border-radius:50%;background:#ff6b6b}.term-bar i:nth-child(2){background:#fbbf24}.term-bar i:nth-child(3){background:#34d399}
+.term-bar em{margin-left:auto;font:400 .75rem 'JetBrains Mono',monospace;color:var(--muted);font-style:normal}
+pre{margin:0;padding:22px;font:400 .9rem/1.85 'JetBrains Mono',ui-monospace,monospace;white-space:pre-wrap;color:var(--text)}
+.k{color:var(--a3)}.t{color:var(--a2)}.s{color:var(--ok)}.cm{color:var(--muted)}
+.caret{display:inline-block;width:8px;height:1em;background:var(--a2);vertical-align:-2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+
+/* sections */
+section{padding:84px 0}
+.eyebrow{font:600 .78rem Inter;letter-spacing:.2em;text-transform:uppercase;color:var(--a2)}
+h2{font-size:clamp(1.9rem,3.6vw,2.7rem);letter-spacing:-.04em;line-height:1.15;margin:10px 0 14px}
+.sub{color:var(--muted);max-width:640px;margin:0 0 44px}
+.card{border:1px solid var(--card-b);background:var(--card);border-radius:20px;padding:26px;backdrop-filter:blur(8px);transition:.25s}
+.card:hover{border-color:color-mix(in srgb,var(--a1) 55%,var(--card-b));transform:translateY(-3px)}
+h3{margin:0 0 8px;font-size:1.15rem;letter-spacing:-.02em}
+.muted{color:var(--muted)}
+
+.about{display:grid;grid-template-columns:1.3fr .7fr;gap:28px}
+.about p{margin:0 0 16px;color:var(--muted);font-size:1.05rem}
+.facts{display:grid;gap:14px}
+.fact{display:flex;gap:14px;align-items:center}
+.fact .ic{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:color-mix(in srgb,var(--a1) 18%,transparent);font-size:1.15rem}
+.fact b{display:block;font-size:.95rem}.fact span{font-size:.82rem;color:var(--muted)}
+
+.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chip{font-size:.82rem;padding:6px 12px;border-radius:999px;border:1px solid var(--card-b);background:color-mix(in srgb,var(--a1) 10%,transparent);color:var(--text);font-weight:500}
+.skill-ic{font-size:1.5rem;margin-bottom:10px}
+
+/* project */
+.project{display:grid;grid-template-columns:1.05fr .95fr;gap:36px;padding:38px;overflow:hidden;position:relative}
+.project::before{content:"";position:absolute;inset:0;background:radial-gradient(500px 280px at 90% 10%,color-mix(in srgb,var(--a1) 22%,transparent),transparent);pointer-events:none}
+.project>*{position:relative}
+.feat{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:10px}
+.feat li{display:flex;gap:11px;color:var(--muted);font-size:.97rem}
+.feat li::before{content:"✓";color:var(--ok);font-weight:800}
+.phones{display:flex;justify-content:center;align-items:center;gap:14px}
+.phone{width:132px;height:268px;border-radius:26px;border:2px solid color-mix(in srgb,var(--text) 22%,transparent);background:#050a14;padding:8px;box-shadow:var(--shadow)}
+.phone:nth-child(2){transform:translateY(-22px) scale(1.07)}
+.phone:nth-child(1){transform:rotate(-4deg)}.phone:nth-child(3){transform:rotate(4deg)}
+.scr{height:100%;border-radius:18px;background:linear-gradient(170deg,#12294a,#08111f);padding:12px 9px;font-size:.62rem;color:#eaf2ff;overflow:hidden}
+.scr .tt{font-weight:800;font-size:.76rem;margin-bottom:10px}
+.tile{height:46px;border-radius:9px;background:#dce9fb;display:grid;place-items:center;font-size:1.2rem;margin:7px 0}
+.row{height:8px;border-radius:4px;background:rgba(255,255,255,.16);margin:8px 0}.row.s{width:60%}
+.mb{background:var(--a1);color:#06101f;border-radius:8px;text-align:center;padding:6px;font-weight:800;margin:10px 0}
+.links-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px}
+
+/* timeline */
+.tl{position:relative;display:grid;gap:18px;padding-left:28px}
+.tl::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--a1),var(--a3),transparent)}
+.tli{position:relative}
+.tli::before{content:"";position:absolute;left:-28px;top:30px;width:16px;height:16px;border-radius:50%;background:var(--bg);border:3px solid var(--a2)}
+.tli .when{font:500 .8rem 'JetBrains Mono',monospace;color:var(--a2)}
+.tli h3{margin-top:4px}.tli .org{color:var(--muted);font-size:.93rem;margin-bottom:8px}
+.tli ul{margin:0;padding-left:18px;color:var(--muted);font-size:.95rem}
+.tli li{margin:4px 0}
+
+.two{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.list{display:grid;gap:16px}
+.item .when{font:500 .8rem 'JetBrains Mono',monospace;color:var(--a2)}
+
+.contact{text-align:center;padding:56px 28px;position:relative;overflow:hidden}
+.contact::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 260px at 50% 0,color-mix(in srgb,var(--a1) 28%,transparent),transparent);pointer-events:none}
+.contact>*{position:relative}
+.contact .cta{justify-content:center}
+footer{padding:30px 0 44px;color:var(--muted);font-size:.86rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;border-top:1px solid var(--card-b)}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}html{scroll-behavior:auto}}
+
+@media(max-width:900px){
+  .hero,.about,.project,.two{grid-template-columns:1fr}
+  .hero{padding:60px 0}.skills{grid-template-columns:1fr 1fr}.project{padding:26px}.links{display:none}
+  .term{transform:none}
+}
+@media(max-width:560px){
+  .wrap{width:min(100% - 28px,1120px)}.skills{grid-template-columns:1fr}section{padding:60px 0}
+  .phone{width:104px;height:216px}.stats{gap:22px}.brand span.nm{display:none}
+}
+</style>
 </head>
 <body>
-  <header class="wrap nav">
-    <a class="brand" href="#home"><span>KN</span> Konstantinos Nikolakopoulos</a>
-    <nav class="navlinks" aria-label="Main navigation">
-      <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#contact">Contact</a>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#home"><div class="logo">KN</div><span class="nm">Konstantinos Nikolakopoulos</span></a>
+    <nav class="links" aria-label="Main">
+      <a href="#about" data-en="About" data-el="Σχετικά">About</a>
+      <a href="#skills" data-en="Skills" data-el="Δεξιότητες">Skills</a>
+      <a href="#projects" data-en="Project" data-el="Project">Project</a>
+      <a href="#experience" data-en="Experience" data-el="Εμπειρία">Experience</a>
+      <a href="#contact" data-en="Contact" data-el="Επικοινωνία">Contact</a>
     </nav>
-  </header>
-  <main>
-    <section class="wrap hero" id="home" style="border-top:0">
-      <div>
-        <div class="eyebrow">Software Developer</div>
-        <h1>Hi, I'm Konstantinos <span>Nikolakopoulos.</span></h1>
-        <p class="lead">Computer Science and Telecommunications graduate from the University of Ioannina, interested in building useful software and user-friendly mobile experiences with Flutter and Dart.</p>
-        <div class="actions">
-          <a class="btn primary" href="#projects">Explore my projects ↘</a>
-          <a class="btn" href="https://github.com/KostasNikP" target="_blank" rel="noreferrer">GitHub profile ↗</a>
-        </div>
-      </div>
-      <div class="codecard" aria-label="Code-inspired illustration">
-        <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-        <pre><span class="c-purple">class</span> Developer {
-  <span class="c-blue">final</span> passion = <span class="c-green">'building'</span>;
-  <span class="c-blue">final</span> tools = [
-    <span class="c-green">'Flutter'</span>,
-    <span class="c-green">'Dart'</span>,
-    <span class="c-green">'Git'</span>,
-    <span class="c-green">'SQL'</span>,
+    <div class="tools">
+      <button class="icon-btn" id="lang" aria-label="Change language">EL</button>
+      <button class="icon-btn" id="theme" aria-label="Toggle theme">☾</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="wrap hero" id="home" style="padding-top:96px">
+  <div>
+    <span class="pill"><i class="pulse"></i><span data-en="Open to software development roles" data-el="Διαθέσιμος για θέσεις ανάπτυξης λογισμικού">Open to software development roles</span></span>
+    <h1><span data-en="Hi, I'm" data-el="Γεια, είμαι ο">Hi, I'm</span> <span class="grad">Konstantinos Nikolakopoulos</span></h1>
+    <p class="lead" data-en="Computer Science & Telecommunications graduate from the University of Ioannina. I build clean, user-friendly mobile and web experiences with Flutter and Dart." data-el="Απόφοιτος Πληροφορικής & Τηλεπικοινωνιών του Πανεπιστημίου Ιωαννίνων. Φτιάχνω καθαρές, φιλικές εφαρμογές για mobile και web με Flutter και Dart.">Computer Science & Telecommunications graduate from the University of Ioannina. I build clean, user-friendly mobile and web experiences with Flutter and Dart.</p>
+    <div class="cta">
+      <a class="btn primary" href="#projects" data-en="View my project ↓" data-el="Δες το project μου ↓">View my project ↓</a>
+      <a class="btn" href="https://github.com/KostasNikP" target="_blank" rel="noreferrer">GitHub ↗</a>
+      <a class="btn" href="https://www.linkedin.com/in/konstantinos-nikolakopoulos-986a5a364/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>BSc</b><span data-en="Computer Science & Telecom" data-el="Πληροφορική & Τηλεπικοινωνίες">Computer Science & Telecom</span></div>
+      <div class="stat"><b>3</b><span data-en="Platforms: Android · iOS · Web" data-el="Πλατφόρμες: Android · iOS · Web">Platforms: Android · iOS · Web</span></div>
+      <div class="stat"><b>B2</b><span data-en="English level" data-el="Επίπεδο Αγγλικών">English level</span></div>
+    </div>
+  </div>
+  <div class="term" aria-label="Code illustration">
+    <div class="term-bar"><i></i><i></i><i></i><em>developer.dart</em></div>
+<pre><span class="k">class</span> <span class="t">Developer</span> {
+  <span class="k">final</span> name = <span class="s">'Konstantinos'</span>;
+  <span class="k">final</span> stack = [
+    <span class="s">'Flutter'</span>, <span class="s">'Dart'</span>,
+    <span class="s">'Python'</span>, <span class="s">'SQL'</span>,
   ];
 
-  <span class="c-purple">void</span> keepLearning() {
+  <span class="k">void</span> <span class="t">work</span>() {
+    learn();
     build();
-    test();
-    improve();
-  }
+    improve();   <span class="cm">// repeat</span>
+  }<span class="caret"></span>
 }</pre>
+  </div>
+</section>
+
+<section class="wrap rv" id="about">
+  <div class="eyebrow" data-en="About" data-el="Σχετικά">About</div>
+  <h2 data-en="Turning ideas into working software" data-el="Μετατρέπω ιδέες σε λειτουργικό λογισμικό">Turning ideas into working software</h2>
+  <div class="about" style="margin-top:34px">
+    <div>
+      <p data-en="I graduated from the University of Ioannina (2020–2025) with a BSc in Computer Science & Telecommunications. I enjoy learning new technologies and building practical applications with a clear structure and a polished interface." data-el="Αποφοίτησα από το Πανεπιστήμιο Ιωαννίνων (2020–2025) με πτυχίο Πληροφορικής & Τηλεπικοινωνιών. Μου αρέσει να μαθαίνω νέες τεχνολογίες και να φτιάχνω πρακτικές εφαρμογές με καθαρή δομή και προσεγμένο interface.">I graduated from the University of Ioannina (2020–2025) with a BSc in Computer Science & Telecommunications. I enjoy learning new technologies and building practical applications with a clear structure and a polished interface.</p>
+      <p data-en="My Flutter project gave me hands-on experience with state management, navigation and real e-commerce flows. Alongside tech, my service in the Army and years in hospitality taught me discipline, teamwork and how to stay calm under pressure." data-el="Το Flutter project μου μού έδωσε πρακτική εμπειρία σε state management, πλοήγηση και πραγματικές ροές e-commerce. Παράλληλα με την τεχνολογία, η στρατιωτική θητεία και η δουλειά στην εστίαση μου έδωσαν πειθαρχία, ομαδικότητα και ψυχραιμία υπό πίεση.">My Flutter project gave me hands-on experience with state management, navigation and real e-commerce flows. Alongside tech, my service in the Army and years in hospitality taught me discipline, teamwork and how to stay calm under pressure.</p>
+    </div>
+    <div class="card facts">
+      <div class="fact"><div class="ic">🎓</div><div><b>University of Ioannina</b><span>BSc · 2020–2025</span></div></div>
+      <div class="fact"><div class="ic">📍</div><div><b>Achaia, Greece</b><span data-en="Based in Western Greece" data-el="Δυτική Ελλάδα">Based in Western Greece</span></div></div>
+      <div class="fact"><div class="ic">🌐</div><div><b data-en="Greek · English" data-el="Ελληνικά · Αγγλικά">Greek · English</b><span data-en="Native · B2 Upper-Intermediate" data-el="Μητρική · B2">Native · B2 Upper-Intermediate</span></div></div>
+      <div class="fact"><div class="ic">🪖</div><div><b data-en="Military service completed" data-el="Στρατιωτική θητεία: ολοκληρώθηκε">Military service completed</b><span>2026</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap rv" id="skills">
+  <div class="eyebrow" data-en="Skills" data-el="Δεξιότητες">Skills</div>
+  <h2 data-en="Tools I work with" data-el="Εργαλεία που χρησιμοποιώ">Tools I work with</h2>
+  <p class="sub" data-en="A mix of mobile development, programming fundamentals and practical IT support." data-el="Συνδυασμός mobile development, βασικών γνώσεων προγραμματισμού και πρακτικής IT υποστήριξης.">A mix of mobile development, programming fundamentals and practical IT support.</p>
+  <div class="skills">
+    <div class="card"><div class="skill-ic">📱</div><h3 data-en="Mobile Development" data-el="Mobile Development">Mobile Development</h3><div class="chips"><span class="chip">Flutter 3.x</span><span class="chip">Dart</span><span class="chip">Provider</span><span class="chip">Material Design 3</span><span class="chip">Named Routes</span></div></div>
+    <div class="card"><div class="skill-ic">💻</div><h3 data-en="Programming" data-el="Προγραμματισμός">Programming</h3><div class="chips"><span class="chip">Python</span><span class="chip">C</span><span class="chip">C++</span><span class="chip">Java</span><span class="chip">SQL</span><span class="chip">Dart</span></div></div>
+    <div class="card"><div class="skill-ic">🌐</div><h3 data-en="Web & Tools" data-el="Web & Εργαλεία">Web & Tools</h3><div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">Git</span><span class="chip">GitHub</span><span class="chip">VS Code</span><span class="chip">Android Studio</span></div></div>
+    <div class="card"><div class="skill-ic">🛠️</div><h3 data-en="IT Support" data-el="IT Υποστήριξη">IT Support</h3><div class="chips"><span class="chip" data-en="PC Assembly & Upgrades" data-el="Συναρμολόγηση & Αναβάθμιση PC">PC Assembly & Upgrades</span><span class="chip" data-en="Troubleshooting" data-el="Αντιμετώπιση προβλημάτων">Troubleshooting</span><span class="chip" data-en="Computer Networks" data-el="Δίκτυα υπολογιστών">Computer Networks</span><span class="chip" data-en="Technical Support" data-el="Τεχνική υποστήριξη">Technical Support</span></div></div>
+    <div class="card"><div class="skill-ic">🔬</div><h3 data-en="Additional Tools" data-el="Επιπλέον εργαλεία">Additional Tools</h3><div class="chips"><span class="chip">Arduino</span><span class="chip">MATLAB</span><span class="chip">GNU Octave</span><span class="chip">E-Learning Systems</span></div></div>
+    <div class="card"><div class="skill-ic">🤝</div><h3 data-en="Soft Skills" data-el="Soft Skills">Soft Skills</h3><div class="chips"><span class="chip" data-en="Leadership" data-el="Ηγεσία">Leadership</span><span class="chip" data-en="Organization" data-el="Οργάνωση">Organization</span><span class="chip" data-en="Decision-making" data-el="Λήψη αποφάσεων">Decision-making</span><span class="chip" data-en="Teamwork" data-el="Ομαδικότητα">Teamwork</span></div></div>
+  </div>
+</section>
+
+<section class="wrap rv" id="projects">
+  <div class="eyebrow">Project</div>
+  <h2 data-en="Featured project" data-el="Επιλεγμένο project">Featured project</h2>
+  <p class="sub" data-en="A complete cross-platform e-commerce application." data-el="Μια ολοκληρωμένη cross-platform εφαρμογή e-commerce.">A complete cross-platform e-commerce application.</p>
+  <article class="card project">
+    <div>
+      <h3 style="font-size:1.6rem">ShopApp</h3>
+      <div class="chips" style="margin:0 0 16px"><span class="chip">Flutter 3.x</span><span class="chip">Dart</span><span class="chip">Provider</span><span class="chip">Android</span><span class="chip">iOS</span><span class="chip">Web</span></div>
+      <p class="muted" style="margin:0" data-en="Designed and developed end-to-end for Android, iOS and Web, with a focus on a clean interface and familiar shopping flows." data-el="Σχεδιασμένη και υλοποιημένη από την αρχή για Android, iOS και Web, με έμφαση σε καθαρό interface και οικείες ροές αγορών.">Designed and developed end-to-end for Android, iOS and Web, with a focus on a clean interface and familiar shopping flows.</p>
+      <ul class="feat">
+        <li data-en="Authentication and session management with Provider" data-el="Authentication και session management με Provider">Authentication and session management with Provider</li>
+        <li data-en="Real-time search, category filters and ratings" data-el="Αναζήτηση σε πραγματικό χρόνο, φίλτρα κατηγοριών και βαθμολογίες">Real-time search, category filters and ratings</li>
+        <li data-en="Shopping cart with animated checkout / payment flow" data-el="Καλάθι αγορών με animated ροή checkout / πληρωμής">Shopping cart with animated checkout / payment flow</li>
+        <li data-en="MVC-style structure, persistent state, Dark / Light theme" data-el="Δομή τύπου MVC, persistent state, Dark / Light theme">MVC-style structure, persistent state, Dark / Light theme</li>
+      </ul>
+      <div class="links-row">
+        <a class="btn primary" href="https://github.com/KostasNikP/app" target="_blank" rel="noreferrer" data-en="Source code ↗" data-el="Κώδικας στο GitHub ↗">Source code ↗</a>
       </div>
-    </section>
-    <section id="about">
-      <div class="wrap aboutgrid">
-        <div>
-          <div class="sectionhead"><h2>About me</h2></div>
-          <p class="muted">I graduated in Computer Science and Telecommunications from the University of Ioannina (2020–2025). I enjoy turning ideas into practical applications, learning new technologies, and improving how software is structured and used.</p>
-          <p class="muted">My Flutter project gave me hands-on practice with mobile UI, application state, navigation, and common e-commerce flows. I am eager to keep developing my skills, contribute to a collaborative team, and learn from real-world software projects.</p>
-          <div class="facts"><span class="fact">🎓 University of Ioannina</span><span class="fact">📍 Achaia, Greece</span><span class="fact">🌐 English — B2</span></div>
+    </div>
+    <div class="phones" aria-label="Illustrative app screens">
+      <div class="phone"><div class="scr"><div class="tt">ShopApp</div><div class="tile">🛍️</div><div class="mb">Sign in</div><div class="row"></div><div class="row s"></div></div></div>
+      <div class="phone"><div class="scr"><div class="tt">Featured</div><div class="tile">👟</div><div class="tile">🎒</div><div class="row"></div><div class="row s"></div></div></div>
+      <div class="phone"><div class="scr"><div class="tt">Your cart</div><div class="row"></div><div class="row"></div><div class="row s"></div><div class="mb">Checkout</div></div></div>
+    </div>
+  </article>
+</section>
+
+<section class="wrap rv" id="experience">
+  <div class="eyebrow" data-en="Experience" data-el="Εμπειρία">Experience</div>
+  <h2 data-en="Where I've worked" data-el="Επαγγελματική εμπειρία">Where I've worked</h2>
+  <p class="sub" data-en="Service and customer-facing roles that built discipline, speed and communication." data-el="Θέσεις υπηρεσίας και εξυπηρέτησης που ανέπτυξαν πειθαρχία, ταχύτητα και επικοινωνία.">Service and customer-facing roles that built discipline, speed and communication.</p>
+  <div class="tl">
+    <div class="tli card">
+      <div class="when">2026</div>
+      <h3 data-en="Reserve Infantry Corporal – Administrative Officer (G1, G2 & G3)" data-el="Έφεδρος Δεκανέας Πεζικού – Διοικητικός Αξιωματικός (G1, G2 & G3)">Reserve Infantry Corporal – Administrative Officer (G1, G2 & G3)</h3>
+      <div class="org">282 Mechanized Infantry Battalion, Kos, Greece</div>
+      <ul>
+        <li data-en="Personnel administration, intelligence support and operations-related duties." data-el="Διοικητική υποστήριξη προσωπικού, υποστήριξη πληροφοριών και καθήκοντα επιχειρήσεων.">Personnel administration, intelligence support and operations-related duties.</li>
+        <li data-en="Managed confidential documents, records and interdepartmental communication." data-el="Διαχείριση διαβαθμισμένων εγγράφων, αρχείων και επικοινωνίας μεταξύ τμημάτων.">Managed confidential documents, records and interdepartmental communication.</li>
+        <li data-en="Developed leadership, decision-making under pressure and strict protocol compliance." data-el="Ανάπτυξη ηγετικών ικανοτήτων, λήψης αποφάσεων υπό πίεση και αυστηρής τήρησης πρωτοκόλλων.">Developed leadership, decision-making under pressure and strict protocol compliance.</li>
+      </ul>
+    </div>
+    <div class="tli card">
+      <div class="when">Jun 2025 – Aug 2025</div>
+      <h3 data-en="Bartender & Head Waiter" data-el="Bartender & Head Waiter">Bartender & Head Waiter</h3>
+      <div class="org">Pouda Beach Bar</div>
+      <ul><li data-en="Cash handling, customer service and high-volume hospitality operations." data-el="Διαχείριση ταμείου, εξυπηρέτηση πελατών και λειτουργία σε υψηλό φόρτο.">Cash handling, customer service and high-volume hospitality operations.</li></ul>
+    </div>
+    <div class="tli card">
+      <div class="when">May 2023 – Sep 2023</div>
+      <h3 data-en="Head Waiter & Cashier" data-el="Head Waiter & Ταμίας">Head Waiter & Cashier</h3>
+      <div class="org">L'Atelier Bistro Bar</div>
+      <ul><li data-en="Customer service, order management and teamwork in a dynamic environment." data-el="Εξυπηρέτηση πελατών, διαχείριση παραγγελιών και ομαδική εργασία σε δυναμικό περιβάλλον.">Customer service, order management and teamwork in a dynamic environment.</li></ul>
+    </div>
+    <div class="tli card">
+      <div class="when">May 2021 – Sep 2021</div>
+      <h3 data-en="Head Waiter & Cashier" data-el="Head Waiter & Ταμίας">Head Waiter & Cashier</h3>
+      <div class="org">Mirador Bar</div>
+      <ul><li data-en="Worked effectively in a fast-paced customer-facing environment." data-el="Αποτελεσματική εργασία σε γρήγορο περιβάλλον εξυπηρέτησης πελατών.">Worked effectively in a fast-paced customer-facing environment.</li></ul>
+    </div>
+  </div>
+</section>
+
+<section class="wrap rv" id="education">
+  <div class="two">
+    <div>
+      <div class="eyebrow" data-en="Education" data-el="Εκπαίδευση">Education</div>
+      <h2 data-en="Education & certifications" data-el="Εκπαίδευση & πιστοποιήσεις">Education & certifications</h2>
+      <div class="list" style="margin-top:28px">
+        <div class="card item"><div class="when">Sep 2020 – Jun 2025</div><h3>University of Ioannina</h3><span class="muted" data-en="BSc in Computer Science & Telecommunications" data-el="Πτυχίο Πληροφορικής & Τηλεπικοινωνιών">BSc in Computer Science & Telecommunications</span></div>
+        <div class="card item"><div class="when">Sep 2017 – Jun 2020</div><h3>Model Vocational High School of Aigio (EPAL)</h3><span class="muted" data-en="Vocational Diploma — Information Technology" data-el="Απολυτήριο ΕΠΑΛ — Πληροφορική">Vocational Diploma — Information Technology</span></div>
+        <div class="card item"><div class="when">Sep 2026</div><h3>Microsoft Applied Skills</h3><span class="muted">Administer Active Directory Domain Services</span></div>
+        <div class="card item"><h3 data-en="Teaching & Pedagogical Competence" data-el="Παιδαγωγική & Διδακτική Επάρκεια">Teaching & Pedagogical Competence</h3><span class="muted" data-en="Certification · University of Ioannina" data-el="Πιστοποίηση · Πανεπιστήμιο Ιωαννίνων">Certification · University of Ioannina</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="eyebrow" data-en="Volunteering" data-el="Εθελοντισμός">Volunteering</div>
+      <h2 data-en="Giving back" data-el="Προσφορά στην κοινότητα">Giving back</h2>
+      <div class="list" style="margin-top:28px">
+        <div class="card item">
+          <div class="when" data-en="2022 – Present" data-el="2022 – Σήμερα">2022 – Present</div>
+          <h3 data-en="Municipality of Achaia" data-el="Δήμος Αχαΐας">Municipality of Achaia</h3>
+          <p class="muted" style="margin:6px 0 10px" data-en="Annual environmental initiatives across Patras: cleaning, reforestation and wildlife protection." data-el="Ετήσιες περιβαλλοντικές δράσεις στην Πάτρα: καθαρισμοί, αναδασώσεις και προστασία άγριας ζωής.">Annual environmental initiatives across Patras: cleaning, reforestation and wildlife protection.</p>
+          <p class="muted" style="margin:0" data-en="Fire-prevention patrols with local volunteers, in a region with a history of destructive wildfires." data-el="Περιπολίες πρόληψης πυρκαγιών με τοπικούς εθελοντές, σε μια περιοχή με ιστορικό καταστροφικών πυρκαγιών.">Fire-prevention patrols with local volunteers, in a region with a history of destructive wildfires.</p>
         </div>
-        <div id="skills">
-          <div class="sectionhead"><h2>Skills</h2></div>
-          <div class="skills">
-            <div class="skillbox"><h3>Mobile development</h3><p>Flutter · Dart · Provider</p></div>
-            <div class="skillbox"><h3>Programming</h3><p>Python · C · C++ · Java</p></div>
-            <div class="skillbox"><h3>Web & data</h3><p>HTML · CSS · SQL</p></div>
-            <div class="skillbox"><h3>Tools</h3><p>Git · GitHub · VS Code</p></div>
-            <div class="skillbox"><h3>Development</h3><p>Debugging · UI implementation · State management</p></div>
-            <div class="skillbox"><h3>Teamwork</h3><p>Problem solving · Communication · Continuous learning</p></div>
-          </div>
+        <div class="card item">
+          <h3 data-en="Also" data-el="Επιπλέον">Also</h3>
+          <div class="chips"><span class="chip" data-en="Driving licenses: A1, B" data-el="Δίπλωμα οδήγησης: Α1, Β">Driving licenses: A1, B</span><span class="chip" data-en="Greek — Native" data-el="Ελληνικά — Μητρική">Greek — Native</span><span class="chip" data-en="English — B2" data-el="Αγγλικά — B2">English — B2</span></div>
         </div>
       </div>
-    </section>
-    <section id="projects">
-      <div class="wrap">
-        <div class="sectionhead"><h2>Featured project</h2><span class="muted">Flutter · Dart</span></div>
-        <article class="project">
-          <div>
-            <h3>ShopApp — Flutter E-Commerce App</h3>
-            <p>A personal e-commerce mobile application built with Flutter and Dart, focused on a clean interface and familiar shopping workflows.</p>
-            <p>Features include user sign-in and guest UI, product sections, search and filtering, cart quantity controls with a live total, checkout-related UI, delivery progress, and a profile screen with theme support.</p>
-            <div class="tags"><span class="tag">Flutter</span><span class="tag">Dart</span><span class="tag">Provider</span><span class="tag">E-commerce UI</span><span class="tag">State management</span></div>
-            <div class="projectlinks"><a class="textlink" href="https://github.com/KostasNikP/app" target="_blank" rel="noreferrer">View source code on GitHub ↗</a></div>
-          </div>
-          <div class="phones" aria-label="Illustrative mobile app screen previews">
-            <div class="phone"><div class="notch"></div><div class="screen"><div class="mocktitle">ShopApp</div><div class="producttile">🛍️</div><div class="mockbutton">Sign in</div><div class="minirow"></div><div class="minirow"></div></div></div>
-            <div class="phone"><div class="notch"></div><div class="screen"><div class="mocktitle">Featured</div><div class="producttile">👟</div><div class="producttile">🎒</div><div class="minirow"></div><div class="minirow"></div></div></div>
-            <div class="phone"><div class="notch"></div><div class="screen"><div class="mocktitle">Your cart</div><div class="minirow"></div><div class="minirow"></div><div class="minirow"></div><div class="mockbutton">Checkout</div></div></div>
-          </div>
-        </article>
-      </div>
-    </section>
-    <section id="contact">
-      <div class="wrap contactbox">
-        <div><h2>Let's connect</h2><p class="muted">Interested in software development opportunities and learning from a collaborative team.</p></div>
-        <div class="actions" style="margin-top:0"><a class="btn primary" href="https://github.com/KostasNikP" target="_blank" rel="noreferrer">GitHub ↗</a><a class="btn" href="https://www.linkedin.com/in/konstantinos-nikolakopoulos-986a5a364/" target="_blank" rel="noreferrer">LinkedIn ↗</a></div>
-      </div>
-    </section>
-  </main>
-  <footer class="wrap footer"><span>© <span id="year"></span> Konstantinos Nikolakopoulos</span><span>Built with HTML & CSS</span></footer>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+    </div>
+  </div>
+</section>
+
+<section class="wrap rv" id="contact">
+  <div class="card contact">
+    <div class="eyebrow" data-en="Contact" data-el="Επικοινωνία">Contact</div>
+    <h2 data-en="Let's build something together" data-el="Ας φτιάξουμε κάτι μαζί">Let's build something together</h2>
+    <p class="muted" style="max-width:520px;margin:0 auto" data-en="I'm looking for software development opportunities where I can learn from a collaborative team and keep growing." data-el="Ψάχνω ευκαιρίες στην ανάπτυξη λογισμικού, όπου θα μπορώ να μαθαίνω από μια συνεργατική ομάδα και να εξελίσσομαι.">I'm looking for software development opportunities where I can learn from a collaborative team and keep growing.</p>
+    <div class="cta">
+      <a class="btn primary" href="mailto:kostasnik19@gmail.com">✉ kostasnik19@gmail.com</a>
+      <a class="btn" href="https://github.com/KostasNikP" target="_blank" rel="noreferrer">GitHub ↗</a>
+      <a class="btn" href="https://www.linkedin.com/in/konstantinos-nikolakopoulos-986a5a364/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="wrap">
+  <span>© <span id="year"></span> Konstantinos Nikolakopoulos</span>
+  <span data-en="Trapeza, Achaia · Greece" data-el="Τράπεζα, Αχαΐα · Ελλάδα">Trapeza, Achaia · Greece</span>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement, store={};
+  try{store=window.localStorage}catch(e){}
+  function get(k){try{return store.getItem(k)}catch(e){return null}}
+  function set(k,v){try{store.setItem(k,v)}catch(e){}}
+
+  // theme
+  var themeBtn=document.getElementById('theme');
+  function setTheme(t){root.setAttribute('data-theme',t);themeBtn.textContent=t==='dark'?'☾':'☀';
+    document.querySelector('meta[name=theme-color]').setAttribute('content',t==='dark'?'#070b14':'#f6f8fc');set('theme',t)}
+  var st=get('theme')||(window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');
+  setTheme(st);
+  themeBtn.onclick=function(){setTheme(root.getAttribute('data-theme')==='dark'?'light':'dark')};
+
+  // language
+  var langBtn=document.getElementById('lang');
+  function setLang(l){
+    document.querySelectorAll('[data-en]').forEach(function(e){e.textContent=e.dataset[l]||e.dataset.en});
+    root.lang=l;langBtn.textContent=l==='en'?'EL':'EN';set('lang',l);
+    document.title=l==='en'?'Konstantinos Nikolakopoulos | Software Developer':'Κωνσταντίνος Νικολακόπουλος | Software Developer';
+  }
+  var sl=get('lang')||((navigator.language||'').toLowerCase().indexOf('el')===0?'el':'en');
+  setLang(sl);
+  langBtn.onclick=function(){setLang(root.lang==='en'?'el':'en')};
+
+  document.getElementById('year').textContent=new Date().getFullYear();
+
+  // reveal on scroll
+  var els=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+    els.forEach(function(e){io.observe(e)});
+  }else{els.forEach(function(e){e.classList.add('in')})}
+})();
+</script>
 </body>
 </html>
