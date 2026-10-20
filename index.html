@@ -285,9 +285,13 @@ h2 span{color:var(--blue);margin-right:15px}
 .project-phone video{
   width:100%;
   height:100%;
-  object-fit:cover;
+  object-fit:contain;
   display:none;
   background:#10121e;
+}
+.project-phone video:fullscreen,.project-phone video:-webkit-full-screen{
+  width:100%;height:100%;max-width:100vw;max-height:100vh;
+  object-fit:contain!important;background:#000;
 }
 .project-preview{
   position:absolute;
@@ -324,7 +328,8 @@ h2 span{color:var(--blue);margin-right:15px}
   color:var(--muted);
   text-align:center;
 }
-.project-desktop{
+ .project-desktop{
+  position:relative;
   width:100%;
   max-width:580px;
   overflow:hidden;
@@ -363,6 +368,15 @@ h2 span{color:var(--blue);margin-right:15px}
   text-align:center;
   font:13px var(--mono);
 }
+.rig-preview-button{display:block;position:relative;width:100%;padding:0;border:0;background:transparent;color:#fff;cursor:zoom-in;text-align:left}
+.rig-preview-button:focus-visible{outline:3px solid var(--blue);outline-offset:-3px}
+.rig-preview-button img{display:block;width:100%;height:auto;object-fit:contain}
+.rig-zoom-hint{position:absolute;bottom:12px;right:12px;padding:7px 11px;border:1px solid #5a7196;border-radius:8px;background:#081426df;color:#f2f6ff;font:11px var(--mono)}
+.demo-modal{box-sizing:border-box;width:min(96vw,1400px);max-width:96vw;max-height:96vh;padding:0;border:1px solid #334765;border-radius:13px;background:#0a1220;color:#f2f6ff;box-shadow:0 24px 80px #000c;overflow:auto}
+.demo-modal::backdrop{background:#000c;backdrop-filter:blur(6px)}
+.demo-modal-head{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:10px 16px;border-bottom:1px solid #263149;font:13px var(--mono)}
+.demo-modal-close{flex:none;border:1px solid #40516a;background:#132136;color:#fff;border-radius:8px;padding:5px 11px;cursor:pointer;font-size:18px}
+.demo-modal img{display:block;width:auto;height:auto;max-width:100%;max-height:calc(96vh - 65px);margin:auto;object-fit:contain}
 .timeline{display:grid;gap:16px}
 .entry{
   display:grid;
@@ -660,12 +674,15 @@ body.light .terminal pre{color:#d4e1ff}
           <span>RigObserver — Live Monitoring</span>
         </div>
 
-        <img
-          src="https://raw.githubusercontent.com/KostasNikP/RigObserver/main/demo.gif"
-          alt="RigObserver real-time hardware monitoring application demo"
-          loading="lazy"
-          onerror="this.style.display='none';this.nextElementSibling.style.display='block';"
-        >
+        <button type="button" class="rig-preview-button" id="rigobserver-open" aria-label="Open RigObserver demo in a large window">
+          <img
+            src="https://raw.githubusercontent.com/KostasNikP/RigObserver/main/demo.gif"
+            alt="RigObserver real-time hardware monitoring application demo"
+            loading="lazy"
+            onerror="this.parentElement.style.display='none';this.parentElement.nextElementSibling.style.display='block';"
+          >
+          <span class="rig-zoom-hint" data-en="Expand demo ↗" data-el="Μεγέθυνση demo ↗">Expand demo ↗</span>
+        </button>
         <div class="project-desktop-fallback">
           RigObserver<br>
           <a href="https://github.com/KostasNikP/RigObserver/blob/main/demo.gif"
@@ -820,6 +837,14 @@ body.light .terminal pre{color:#d4e1ff}
 </div>
 </div>
 
+<dialog class="demo-modal" id="rigobserver-modal" aria-label="RigObserver enlarged demo">
+  <div class="demo-modal-head">
+    <span>RigObserver — Live Demo</span>
+    <button type="button" class="demo-modal-close" id="rigobserver-close" aria-label="Close enlarged demo">×</button>
+  </div>
+  <img src="https://raw.githubusercontent.com/KostasNikP/RigObserver/main/demo.gif" alt="RigObserver animated dashboard at original aspect ratio">
+</dialog>
+
 <script>
 (()=>{
   const $=s=>document.querySelector(s);
@@ -930,11 +955,34 @@ body.light .terminal pre{color:#d4e1ff}
     }
   }
 
-  const links=$$('.nav a');
-  links.forEach(a=>a.addEventListener('click',()=>{
-    links.forEach(x=>x.classList.remove('active'));
-    a.classList.add('active');
-  }));
+  const rigOpen=$('#rigobserver-open'),rigModal=$('#rigobserver-modal');
+  if(rigOpen&&rigModal){
+    rigOpen.addEventListener('click',()=>rigModal.showModal());
+    $('#rigobserver-close').addEventListener('click',()=>rigModal.close());
+    rigModal.addEventListener('click',e=>{if(e.target===rigModal)rigModal.close()});
+  }
+
+  // Track the visible section during scrolling (including paired columns).
+  const sections=[...$('.nav a[href^="#"]')].map(link=>({link,element:document.getElementById(link.getAttribute('href').slice(1))})).filter(x=>x.element);
+  let navScheduled=false;
+  function updateActiveNav(){
+    navScheduled=false;
+    const marker=window.innerHeight*.34;
+    const visible=sections.filter(x=>{const r=x.element.getBoundingClientRect();return r.top<=marker&&r.bottom>marker});
+    const fallback=[...sections].reverse().find(x=>x.element.getBoundingClientRect().top<=marker)||sections[0];
+    sections.forEach(x=>{
+      const active=visible.length?visible.includes(x):x===fallback;
+      x.link.classList.toggle('active',active);
+      if(active)x.link.setAttribute('aria-current','location');
+      else x.link.removeAttribute('aria-current');
+    });
+  }
+  function scheduleNav(){if(!navScheduled){navScheduled=true;requestAnimationFrame(updateActiveNav)}}
+  window.addEventListener('scroll',scheduleNav,{passive:true});
+  window.addEventListener('resize',scheduleNav);
+  window.addEventListener('hashchange',scheduleNav);
+  sections.forEach(x=>x.link.addEventListener('click',()=>{sections.forEach(z=>z.link.classList.remove('active'));x.link.classList.add('active')}));
+  scheduleNav();
 })();
 </script>
 </body>
