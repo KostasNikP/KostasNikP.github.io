@@ -1,33 +1,536 @@
+
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Konstantinos Nikolakopoulos — Junior Software Developer, Flutter & Dart.">
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Konstantinos Nikolakopoulos — Junior Software Developer, Flutter, Python and Windows applications.">
 <title>Konstantinos Nikolakopoulos | Developer</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#080d16;--panel:#0d1523;--line:#213047;--fg:#eaf0ff;--muted:#9cabc5;--blue:#5289ff;--violet:#9a73ff;--mono:'JetBrains Mono',monospace;--sans:'DM Sans',sans-serif}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.65 var(--sans)}body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(ellipse 55% 35% at 75% 0%,#17336675,transparent 75%),radial-gradient(circle at 30% 55%,#17234440,transparent 60%),radial-gradient(#35517850 1px,transparent 1px);background-size:auto,auto,26px 26px;mask-image:linear-gradient(#000,transparent 90%)}a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}.layout{display:grid;grid-template-columns:220px minmax(0,1fr);max-width:1600px;margin:auto}.side{border-right:1px solid var(--line);position:sticky;top:0;height:100vh;padding:30px 26px;display:flex;flex-direction:column;background:#080d16b8;backdrop-filter:blur(12px)}.logo{font:700 28px var(--mono);letter-spacing:-3px;color:var(--fg)}.logo span,.accent{color:var(--blue)}.nav{margin-top:55px;display:grid;gap:10px}.nav a{padding:8px 10px;border-left:2px solid transparent;font:12px var(--mono);color:var(--muted)}.nav a:hover,.nav a.active{border-color:var(--blue);color:var(--fg);background:#17294a66}.bottom{margin-top:auto;color:var(--muted);font-size:13px}.bottom a{margin-right:14px;color:var(--fg)}.status{display:flex;gap:9px;align-items:center;margin-top:25px}.status i{width:7px;height:7px;background:#26d9a2;border-radius:50%;box-shadow:0 0 12px #26d9a2}.content{min-width:0;padding:32px clamp(24px,5vw,90px) 55px}.top{display:flex;justify-content:flex-end;gap:12px}.toggle{background:#101b2c;border:1px solid var(--line);color:var(--fg);padding:7px 12px;border-radius:9px;font:12px var(--mono)}.hero{min-height:470px;display:grid;grid-template-columns:1fr .85fr;align-items:center;gap:36px;border-bottom:1px solid var(--line);padding:36px 0 55px}.prompt{font:13px var(--mono);color:var(--muted)}.prompt b{color:var(--blue)}h1{font:600 clamp(36px,4.5vw,68px)/1.13 var(--mono);letter-spacing:-.065em;margin:26px 0 18px;overflow-wrap:anywhere}.name{display:block;color:var(--blue);text-shadow:0 0 40px #3466ff50}.role{font:14px/1.9 var(--mono);color:var(--muted)}.hero p{max-width:600px;color:var(--muted)}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}.btn{display:inline-flex;padding:11px 19px;border-radius:8px;border:1px solid #476a9d;font:13px var(--mono);align-items:center}.btn.primary{background:linear-gradient(110deg,#337bff,#7763f7);border:0;color:white}.btn:hover{transform:translateY(-2px);transition:.2s}.terminal{border:1px solid #47608a;background:#0a1220de;border-radius:13px;box-shadow:0 18px 80px #0008,0 0 65px #3164ff20;transform:rotate(2deg);overflow:hidden}.termhead{height:39px;border-bottom:1px solid var(--line);padding:13px;display:flex;gap:6px;align-items:center}.termhead i{height:9px;width:9px;border-radius:50%;background:#ff5f56}.termhead i:nth-child(2){background:#ffbd2e}.termhead i:nth-child(3){background:#27c93f}.termhead span{margin-left:auto;color:var(--muted);font:11px var(--mono)}pre{font:12px/1.9 var(--mono);padding:16px 20px;overflow:auto;color:#d4e1ff;margin:0}.key{color:#8db4ff}.str{color:#63d8a5}.kw{color:#ca91ff}.sec{padding:48px 0;border-bottom:1px solid var(--line)}h2{font:500 15px var(--mono);letter-spacing:.08em;margin:0 0 24px}h2 span{color:var(--blue);margin-right:15px}.two{display:grid;grid-template-columns:1fr 1fr;gap:55px}.copy{color:var(--muted);max-width:650px}.copy p{margin-top:0}.quote{border-left:3px solid var(--blue);padding-left:17px;font:14px/1.8 var(--mono);color:var(--fg)}.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.skill{padding:15px;border:1px solid var(--line);border-radius:9px;background:#101a2a99}.skill strong{display:block;color:#a9c2ff;font-size:14px}.skill small{color:var(--muted)}.project{padding:24px;border:1px solid var(--line);border-radius:12px;background:linear-gradient(125deg,#12213a,#0b1422);display:grid;grid-template-columns:1fr 1fr;gap:26px}.project h3{font-size:24px;margin:0}.project p,.project li{color:var(--muted)}.project ul{padding-left:20px}.tags{font:11px var(--mono);color:#9ebcff}.timeline{display:grid;gap:16px}.entry{display:grid;grid-template-columns:130px 1fr;gap:18px;border-left:2px solid var(--blue);padding-left:16px}.entry time{color:var(--muted);font:12px var(--mono)}.entry strong{display:block}.entry small{color:var(--muted)}.contact{font-size:clamp(19px,3vw,30px);font-weight:600;overflow-wrap:anywhere}.contact a{color:#8fb2ff}.foot{display:flex;justify-content:space-between;gap:16px;color:var(--muted);font:11px var(--mono);padding-top:25px}.glitch{position:relative;display:inline-block}.glitch.run:before,.glitch.run:after{content:attr(data-text);position:absolute;inset:0;pointer-events:none}.glitch.run:before{color:#49dfff;clip-path:inset(15% 0 65% 0);animation:shift .13s steps(2) 5}.glitch.run:after{color:#a66bff;clip-path:inset(65% 0 12% 0);animation:shift2 .11s steps(2) 6}@keyframes shift{50%{transform:translate(5px,-2px)}}@keyframes shift2{50%{transform:translate(-5px,2px)}}.reveal{opacity:0;transform:translateY(15px);transition:opacity .7s,transform .7s}.reveal.show{opacity:1;transform:none}body.light{--bg:#f6f8fd;--panel:#fff;--line:#d5ddec;--fg:#17233b;--muted:#586780;background:var(--bg)}body.light .side{background:#f6f8fddd}body.light .skill,body.light .toggle{background:#eaf0fa}body.light .project{background:#eaf0fa}body.light .terminal{background:#0a1220;color:#eaf0ff}body.light .terminal pre{color:#d4e1ff}
-@media(max-width:1100px){.hero{grid-template-columns:1fr}.terminal{transform:none;max-width:680px}.two{grid-template-columns:1fr;gap:12px}}@media(max-width:760px){.layout{display:block}.side{position:relative;height:auto;padding:16px 20px;border-right:0;border-bottom:1px solid var(--line)}.nav{display:flex;overflow-x:auto;gap:4px;margin-top:12px}.nav a{white-space:nowrap}.bottom{display:none}.content{padding:18px 20px 45px}.hero{min-height:0;padding:25px 0 45px}.skills{grid-template-columns:repeat(2,1fr)}.project{grid-template-columns:1fr}.entry{grid-template-columns:1fr;gap:3px}h1{font-size:clamp(31px,8vw,55px)}}@media(max-width:450px){.skills{grid-template-columns:1fr}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
-
+:root{
+  --bg:#080d16;
+  --panel:#0d1523;
+  --line:#213047;
+  --fg:#eaf0ff;
+  --muted:#9cabc5;
+  --blue:#5289ff;
+  --violet:#9a73ff;
+  --mono:'JetBrains Mono',monospace;
+  --sans:'DM Sans',sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--fg);
+  font:16px/1.65 var(--sans);
+}
+body:before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:-1;
+  background:
+    radial-gradient(ellipse 55% 35% at 75% 0%,#17336675,transparent 75%),
+    radial-gradient(circle at 30% 55%,#17234440,transparent 60%),
+    radial-gradient(#35517850 1px,transparent 1px);
+  background-size:auto,auto,26px 26px;
+  mask-image:linear-gradient(#000,transparent 90%);
+}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer}
+.layout{
+  display:grid;
+  grid-template-columns:220px minmax(0,1fr);
+  max-width:1600px;
+  margin:auto;
+}
+.side{
+  border-right:1px solid var(--line);
+  position:sticky;
+  top:0;
+  height:100vh;
+  padding:30px 26px;
+  display:flex;
+  flex-direction:column;
+  background:#080d16b8;
+  backdrop-filter:blur(12px);
+}
+.logo{
+  font:700 28px var(--mono);
+  letter-spacing:-3px;
+  color:var(--fg);
+}
+.logo span,.accent{color:var(--blue)}
+.nav{margin-top:55px;display:grid;gap:10px}
+.nav a{
+  padding:8px 10px;
+  border-left:2px solid transparent;
+  font:12px var(--mono);
+  color:var(--muted);
+}
+.nav a:hover,.nav a.active{
+  border-color:var(--blue);
+  color:var(--fg);
+  background:#17294a66;
+}
+.bottom{
+  margin-top:auto;
+  color:var(--muted);
+  font-size:13px;
+}
+.bottom a{margin-right:14px;color:var(--fg)}
+.status{
+  display:flex;
+  gap:9px;
+  align-items:center;
+  margin-top:25px;
+}
+.status i{
+  width:7px;
+  height:7px;
+  background:#26d9a2;
+  border-radius:50%;
+  box-shadow:0 0 12px #26d9a2;
+}
+.content{
+  min-width:0;
+  padding:32px clamp(24px,5vw,90px) 55px;
+}
+.top{display:flex;justify-content:flex-end;gap:12px}
+.toggle{
+  background:#101b2c;
+  border:1px solid var(--line);
+  color:var(--fg);
+  padding:7px 12px;
+  border-radius:9px;
+  font:12px var(--mono);
+}
+.hero{
+  min-height:470px;
+  display:grid;
+  grid-template-columns:1fr .85fr;
+  align-items:center;
+  gap:36px;
+  border-bottom:1px solid var(--line);
+  padding:36px 0 55px;
+}
+.prompt{font:13px var(--mono);color:var(--muted)}
+.prompt b{color:var(--blue)}
+h1{
+  font:600 clamp(36px,4.5vw,68px)/1.13 var(--mono);
+  letter-spacing:-.065em;
+  margin:26px 0 18px;
+  overflow-wrap:anywhere;
+}
+.name{
+  display:block;
+  color:var(--blue);
+  text-shadow:0 0 40px #3466ff50;
+}
+.role{font:14px/1.9 var(--mono);color:var(--muted)}
+.hero p{max-width:600px;color:var(--muted)}
+.actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:26px;
+}
+.btn{
+  display:inline-flex;
+  padding:11px 19px;
+  border-radius:8px;
+  border:1px solid #476a9d;
+  font:13px var(--mono);
+  align-items:center;
+  justify-content:center;
+}
+.btn.primary{
+  background:linear-gradient(110deg,#337bff,#7763f7);
+  border:0;
+  color:white;
+}
+.btn:hover{
+  transform:translateY(-2px);
+  transition:.2s;
+}
+.terminal{
+  border:1px solid #47608a;
+  background:#0a1220de;
+  border-radius:13px;
+  box-shadow:0 18px 80px #0008,0 0 65px #3164ff20;
+  transform:rotate(2deg);
+  overflow:hidden;
+}
+.termhead{
+  height:39px;
+  border-bottom:1px solid var(--line);
+  padding:13px;
+  display:flex;
+  gap:6px;
+  align-items:center;
+}
+.termhead i{
+  height:9px;
+  width:9px;
+  border-radius:50%;
+  background:#ff5f56;
+}
+.termhead i:nth-child(2){background:#ffbd2e}
+.termhead i:nth-child(3){background:#27c93f}
+.termhead span{
+  margin-left:auto;
+  color:var(--muted);
+  font:11px var(--mono);
+}
+pre{
+  font:12px/1.9 var(--mono);
+  padding:16px 20px;
+  overflow:auto;
+  color:#d4e1ff;
+  margin:0;
+}
+.key{color:#8db4ff}
+.str{color:#63d8a5}
+.kw{color:#ca91ff}
+.sec{
+  padding:48px 0;
+  border-bottom:1px solid var(--line);
+}
+h2{
+  font:500 15px var(--mono);
+  letter-spacing:.08em;
+  margin:0 0 24px;
+}
+h2 span{color:var(--blue);margin-right:15px}
+.two{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:55px;
+}
+.copy{color:var(--muted);max-width:650px}
+.copy p{margin-top:0}
+.quote{
+  border-left:3px solid var(--blue);
+  padding-left:17px;
+  font:14px/1.8 var(--mono);
+  color:var(--fg);
+}
+.skills{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+}
+.skill{
+  padding:15px;
+  border:1px solid var(--line);
+  border-radius:9px;
+  background:#101a2a99;
+}
+.skill strong{
+  display:block;
+  color:#a9c2ff;
+  font-size:14px;
+}
+.skill small{color:var(--muted)}
+.project{
+  padding:24px;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:linear-gradient(125deg,#12213a,#0b1422);
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:26px;
+  margin-bottom:24px;
+}
+.project h3{font-size:24px;margin:0}
+.project p,.project li{color:var(--muted)}
+.project ul{padding-left:20px}
 .project-summary{min-width:0}
 .project-summary ul{padding-left:19px;margin:16px 0 18px}
 .project-summary li{margin:5px 0}
-.project-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:19px}
-.project-media{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;min-width:0}
-.project-phone{aspect-ratio:474/1020;width:min(100%,237px);position:relative;overflow:hidden;border:6px solid #263149;border-radius:25px;background:linear-gradient(160deg,#28254e,#10192c);box-shadow:0 18px 40px #0005}
-.project-phone video{width:100%;height:100%;object-fit:cover;display:none;background:#10121e}
-.project-preview{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;color:#d3ddf0;text-align:center;padding:18px}
-.project-preview-icon{width:74px;height:74px;display:grid;place-items:center;border:1px solid #7788bd;border-radius:19px;font:600 32px var(--mono);color:#a79afd}
-.project-preview strong{font:600 14px var(--mono);color:#eaf0ff}
-.project-preview small{font:12px/1.6 var(--sans);color:#bac7db}
-.project-media-caption{font:11px var(--mono);color:var(--muted);text-align:center}
-@media(max-width:760px){.project-phone{width:min(100%,208px)}}
-</style></head><body>
-<div class="layout"><aside class="side"><a href="#home" class="logo">K<span>N</span>_</a><nav class="nav" aria-label="Sections">
-<a href="#home">01 Home</a><a href="#about">02 About</a><a href="#skills">03 Skills</a><a href="#project">04 Project</a><a href="#experience">05 Experience</a><a href="#education">06 Education</a><a href="#contact">07 Contact</a></nav>
-<div class="bottom"><div><a href="https://github.com/KostasNikP" target="_blank" rel="noopener">GitHub ↗</a><a href="https://www.linkedin.com/in/konstantinos-nikolakopoulos-986a5a364/" target="_blank" rel="noopener">LinkedIn ↗</a></div><div class="status"><i></i><span data-en="Open to junior roles" data-el="Διαθέσιμος για junior θέσεις">Open to junior roles</span></div></div></aside>
-<div class="content"><div class="top"><button class="toggle" id="lang" aria-label="Change language">EL</button><button class="toggle" id="theme" aria-label="Toggle color theme">☾ / ☀</button></div>
-<section class="hero" id="home"><div><div class="prompt">konstantinos@portfolio:~$ <b>whoami</b></div><h1><span class="glitch" id="first" data-text="Konstantinos">Konstantinos</span><span class="name glitch" id="last" data-text="Nikolakopoulos_">Nikolakopoulos_</span></h1><div class="role">// Junior Software Developer<br>// Flutter &amp; Dart<br>// University of Ioannina · 2025</div><p data-en="I build thoughtful cross-platform mobile applications and enjoy turning ideas into functional, user-friendly software." data-el="Αναπτύσσω cross-platform εφαρμογές και μου αρέσει να μετατρέπω ιδέες σε λειτουργικό και εύχρηστο λογισμικό.">I build thoughtful cross-platform mobile applications and enjoy turning ideas into functional, user-friendly software.</p><div class="actions"><a href="#project" class="btn primary" data-en="Explore my work →" data-el="Δες τη δουλειά μου →">Explore my work →</a><a href="https://github.com/KostasNikP" target="_blank" rel="noopener" class="btn">GitHub ↗</a></div></div>
-<div class="terminal" aria-label="Code-inspired developer profile"><div class="termhead"><i></i><i></i><i></i><span>portfolio.js</span></div><pre><span class="kw">const</span> <span class="key">developer</span> = {
+.project-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:19px;
+}
+.tags{
+  font:11px var(--mono);
+  color:#9ebcff;
+  margin-top:10px;
+  line-height:1.8;
+}
+.project-media{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  min-width:0;
+}
+.project-phone{
+  aspect-ratio:474/1020;
+  width:min(100%,237px);
+  position:relative;
+  overflow:hidden;
+  border:6px solid #263149;
+  border-radius:25px;
+  background:linear-gradient(160deg,#28254e,#10192c);
+  box-shadow:0 18px 40px #0005;
+}
+.project-phone video{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:none;
+  background:#10121e;
+}
+.project-preview{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:18px;
+  color:#d3ddf0;
+  text-align:center;
+  padding:18px;
+}
+.project-preview-icon{
+  width:74px;
+  height:74px;
+  display:grid;
+  place-items:center;
+  border:1px solid #7788bd;
+  border-radius:19px;
+  font:600 32px var(--mono);
+  color:#a79afd;
+}
+.project-preview strong{
+  font:600 14px var(--mono);
+  color:#eaf0ff;
+}
+.project-preview small{
+  font:12px/1.6 var(--sans);
+  color:#bac7db;
+}
+.project-media-caption{
+  font:11px var(--mono);
+  color:var(--muted);
+  text-align:center;
+}
+.project-desktop{
+  width:100%;
+  max-width:580px;
+  overflow:hidden;
+  border:1px solid #334765;
+  border-radius:12px;
+  background:#0a1220;
+  box-shadow:0 16px 45px #0005;
+}
+.project-desktop-bar{
+  padding:11px 14px;
+  border-bottom:1px solid #263149;
+  display:flex;
+  align-items:center;
+  gap:7px;
+  font:11px var(--mono);
+  color:#9cabc5;
+}
+.project-desktop-bar i{
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:#ff5f56;
+}
+.project-desktop-bar i:nth-child(2){background:#ffbd2e}
+.project-desktop-bar i:nth-child(3){background:#27c93f}
+.project-desktop-bar span{margin-left:auto}
+.project-desktop img{
+  display:block;
+  width:100%;
+  height:auto;
+}
+.project-desktop-fallback{
+  display:none;
+  padding:40px 20px;
+  color:#bac7db;
+  text-align:center;
+  font:13px var(--mono);
+}
+.timeline{display:grid;gap:16px}
+.entry{
+  display:grid;
+  grid-template-columns:130px 1fr;
+  gap:18px;
+  border-left:2px solid var(--blue);
+  padding-left:16px;
+}
+.entry time{color:var(--muted);font:12px var(--mono)}
+.entry strong{display:block}
+.entry small{color:var(--muted)}
+.contact{
+  font-size:clamp(19px,3vw,30px);
+  font-weight:600;
+  overflow-wrap:anywhere;
+}
+.contact a{color:#8fb2ff}
+.foot{
+  display:flex;
+  justify-content:space-between;
+  gap:16px;
+  color:var(--muted);
+  font:11px var(--mono);
+  padding-top:25px;
+}
+.glitch{position:relative;display:inline-block}
+.glitch.run:before,.glitch.run:after{
+  content:attr(data-text);
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+}
+.glitch.run:before{
+  color:#49dfff;
+  clip-path:inset(15% 0 65% 0);
+  animation:shift .13s steps(2) 5;
+}
+.glitch.run:after{
+  color:#a66bff;
+  clip-path:inset(65% 0 12% 0);
+  animation:shift2 .11s steps(2) 6;
+}
+@keyframes shift{
+  50%{transform:translate(5px,-2px)}
+}
+@keyframes shift2{
+  50%{transform:translate(-5px,2px)}
+}
+.reveal{
+  opacity:0;
+  transform:translateY(15px);
+  transition:opacity .7s,transform .7s;
+}
+.reveal.show{opacity:1;transform:none}
+body.light{
+  --bg:#f6f8fd;
+  --panel:#fff;
+  --line:#d5ddec;
+  --fg:#17233b;
+  --muted:#586780;
+  background:var(--bg);
+}
+body.light .side{background:#f6f8fddd}
+body.light .skill,body.light .toggle{background:#eaf0fa}
+body.light .project{background:#eaf0fa}
+body.light .terminal{background:#0a1220;color:#eaf0ff}
+body.light .terminal pre{color:#d4e1ff}
+@media(max-width:1100px){
+  .hero{grid-template-columns:1fr}
+  .terminal{transform:none;max-width:680px}
+  .two{grid-template-columns:1fr;gap:12px}
+}
+@media(max-width:760px){
+  .layout{display:block}
+  .side{
+    position:relative;
+    height:auto;
+    padding:16px 20px;
+    border-right:0;
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex;
+    overflow-x:auto;
+    gap:4px;
+    margin-top:12px;
+  }
+  .nav a{white-space:nowrap}
+  .bottom{display:none}
+  .content{padding:18px 20px 45px}
+  .hero{min-height:0;padding:25px 0 45px}
+  .skills{grid-template-columns:repeat(2,1fr)}
+  .project{grid-template-columns:1fr}
+  .project-phone{width:min(100%,208px)}
+  .entry{grid-template-columns:1fr;gap:3px}
+  h1{font-size:clamp(31px,8vw,55px)}
+}
+@media(max-width:450px){
+  .skills{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*:before,*:after{
+    animation:none!important;
+    transition:none!important;
+  }
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<div class="layout">
+<aside class="side">
+  <a href="#home" class="logo">K<span>N</span>_</a>
+  <nav class="nav" aria-label="Sections">
+    <a href="#home">01 Home</a>
+    <a href="#about">02 About</a>
+    <a href="#skills">03 Skills</a>
+    <a href="#project">04 Projects</a>
+    <a href="#experience">05 Experience</a>
+    <a href="#education">06 Education</a>
+    <a href="#contact">07 Contact</a>
+  </nav>
+  <div class="bottom">
+    <div>
+      <a href="https://github.com/KostasNikP" target="_blank" rel="noopener">GitHub ↗</a>
+      <a href="https://www.linkedin.com/in/konstantinos-nikolakopoulos-986a5a364/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+    <div class="status">
+      <i></i>
+      <span data-en="Open to junior roles" data-el="Διαθέσιμος για junior θέσεις">Open to junior roles</span>
+    </div>
+  </div>
+</aside>
+
+<div class="content">
+<div class="top">
+  <button class="toggle" id="lang" aria-label="Change language">EL</button>
+  <button class="toggle" id="theme" aria-label="Toggle color theme">☾ / ☀</button>
+</div>
+
+<section class="hero" id="home">
+  <div>
+    <div class="prompt">konstantinos@portfolio:~$ <b>whoami</b></div>
+    <h1>
+      <span class="glitch" id="first" data-text="Konstantinos">Konstantinos</span>
+      <span class="name glitch" id="last" data-text="Nikolakopoulos_">Nikolakopoulos_</span>
+    </h1>
+    <div class="role">
+      // Junior Software Developer<br>
+      // Python · Flutter · Dart<br>
+      // University of Ioannina · 2025
+    </div>
+    <p
+      data-en="I develop practical software, from cross-platform mobile applications to Windows desktop tools, with a focus on functionality and user experience."
+      data-el="Αναπτύσσω πρακτικές λύσεις λογισμικού, από εφαρμογές για κινητά μέχρι εργαλεία Windows, με έμφαση στη λειτουργικότητα και την εμπειρία χρήστη.">
+      I develop practical software, from cross-platform mobile applications to Windows desktop tools, with a focus on functionality and user experience.
+    </p>
+    <div class="actions">
+      <a href="#project" class="btn primary" data-en="Explore my work →" data-el="Δες τη δουλειά μου →">Explore my work →</a>
+      <a href="https://github.com/KostasNikP" target="_blank" rel="noopener" class="btn">GitHub ↗</a>
+    </div>
+  </div>
+  <div class="terminal" aria-label="Code-inspired developer profile">
+    <div class="termhead">
+      <i></i><i></i><i></i><span>portfolio.js</span>
+    </div>
+    <pre><span class="kw">const</span> <span class="key">developer</span> = {
   <span class="key">name</span>: <span class="str">"Konstantinos Nikolakopoulos"</span>,
   <span class="key">role</span>: <span class="str">"Junior Software Developer"</span>,
   <span class="key">stack</span>: [<span class="str">"Flutter"</span>, <span class="str">"Dart"</span>, <span class="str">"Python"</span>],
@@ -39,44 +542,400 @@
   developer.learn();
   developer.build();
   developer.improve();
-}</pre></div></section>
-<div class="two"><section class="sec reveal" id="about"><h2><span>01</span><span data-en="/ ABOUT ME" data-el="/ ΣΧΕΤΙΚΑ">/ ABOUT ME</span></h2><div class="copy"><p data-en="I hold a BSc in Computer Science & Telecommunications from the University of Ioannina (2025). I focus on Flutter and Dart mobile development and continue expanding my software engineering skills." data-el="Είμαι απόφοιτος Πληροφορικής & Τηλεπικοινωνιών του Πανεπιστημίου Ιωαννίνων (2025). Εστιάζω στην ανάπτυξη εφαρμογών Flutter και Dart και συνεχίζω να εξελίσσω τις δεξιότητές μου.">I hold a BSc in Computer Science &amp; Telecommunications from the University of Ioannina (2025). I focus on Flutter and Dart mobile development and continue expanding my software engineering skills.</p><p data-en="My experience in customer service and military administration strengthened my teamwork, organization and attention to detail." data-el="Η εμπειρία μου στην εξυπηρέτηση πελατών και στη στρατιωτική διοικητική υποστήριξη ενίσχυσε την ομαδικότητα, την οργάνωση και την προσοχή στη λεπτομέρεια.">My experience in customer service and military administration strengthened my teamwork, organization and attention to detail.</p><div class="quote">“Build useful things. Keep learning.”</div></div></section>
-<section class="sec reveal" id="skills"><h2><span>02</span>/ SKILLS</h2><div class="skills"><div class="skill"><strong>Flutter</strong><small>Mobile development</small></div><div class="skill"><strong>Dart</strong><small>Cross-platform apps</small></div><div class="skill"><strong>Provider</strong><small>State management</small></div><div class="skill"><strong>Python</strong><small>Programming</small></div><div class="skill"><strong>C / C++ / Java</strong><small>Programming</small></div><div class="skill"><strong>SQL</strong><small>Databases</small></div><div class="skill"><strong>HTML / CSS</strong><small>Web foundations</small></div><div class="skill"><strong>Git / GitHub</strong><small>Version control</small></div><div class="skill"><strong>Android Studio</strong><small>Development tools</small></div></div></section></div>
-<section class="sec reveal" id="project"><h2><span>03</span>/ FEATURED PROJECT</h2>
-<div class="project">
-  <div class="project-summary">
-    <h3>Flutter E-Commerce</h3>
-    <div class="tags">FLUTTER · DART · PROVIDER · MATERIAL 3</div>
-    <p data-en="A responsive shopping application for mobile and web, with a searchable product catalog, saved items, cart management, and an end-to-end simulated checkout." data-el="Responsive εφαρμογή αγορών για κινητό και web, με αναζήτηση προϊόντων, αγαπημένα, διαχείριση καλαθιού και δοκιμαστική ολοκλήρωση παραγγελίας.">A responsive shopping application for mobile and web, with a searchable product catalog, saved items, cart management, and an end-to-end simulated checkout.</p>
-    <ul>
-      <li data-en="Product search, filters and sorting" data-el="Αναζήτηση, φίλτρα και ταξινόμηση προϊόντων">Product search, filters and sorting</li>
-      <li data-en="Wishlist and live cart totals" data-el="Αγαπημένα και δυναμικό σύνολο καλαθιού">Wishlist and live cart totals</li>
-      <li data-en="Local order history and itemized receipts" data-el="Τοπικό ιστορικό παραγγελιών και αναλυτικές αποδείξεις">Local order history and itemized receipts</li>
-      <li data-en="Responsive design with dark and light themes" data-el="Responsive σχεδιασμός με dark και light theme">Responsive design with dark and light themes</li>
-    </ul>
-    <div class="project-actions">
-      <a class="btn primary" href="https://github.com/KostasNikP/flutter-ecommerce-app" target="_blank" rel="noopener" data-en="View source code ↗" data-el="Δες τον κώδικα ↗">View source code ↗</a>
-      <a class="btn" href="https://github.com/KostasNikP/flutter-ecommerce-app#demo" target="_blank" rel="noopener" data-en="Project details ↗" data-el="Περισσότερα ↗">Project details ↗</a>
-    </div>
-    <p style="font-size:12px;margin-top:18px" data-en="Portfolio demonstration; checkout and authentication are simulated." data-el="Επίδειξη portfolio: η σύνδεση και οι πληρωμές είναι δοκιμαστικές.">Portfolio demonstration; checkout and authentication are simulated.</p>
+}</pre>
   </div>
-  <div class="project-media">
-    <div class="project-phone">
-      <video id="project-demo" muted playsinline autoplay loop controls preload="metadata" aria-label="Video demonstration of the Flutter shopping app">
-        <source src="https://raw.githubusercontent.com/KostasNikP/flutter-ecommerce-app/main/media/tech_store_portfolio_demo.mp4" type="video/mp4">
-      </video>
-      <div class="project-preview" id="project-preview" role="img" aria-label="Flutter shopping app preview">
-        <div class="project-preview-icon">F</div>
-        <strong>Flutter E-Commerce</strong>
-        <small>Mobile-first storefront<br>Flutter · Dart · Provider</small>
+</section>
+
+<div class="two">
+<section class="sec reveal" id="about">
+  <h2>
+    <span>01</span>
+    <span data-en="/ ABOUT ME" data-el="/ ΣΧΕΤΙΚΑ">/ ABOUT ME</span>
+  </h2>
+  <div class="copy">
+    <p
+      data-en="I hold a BSc in Computer Science & Telecommunications from the University of Ioannina (2025). My work includes Flutter mobile development and Python-based desktop and system monitoring applications."
+      data-el="Είμαι απόφοιτος Πληροφορικής & Τηλεπικοινωνιών του Πανεπιστημίου Ιωαννίνων (2025). Ασχολούμαι με εφαρμογές Flutter και ανάπτυξη εργαλείων Windows και παρακολούθησης συστημάτων με Python.">
+      I hold a BSc in Computer Science & Telecommunications from the University of Ioannina (2025). My work includes Flutter mobile development and Python-based desktop and system monitoring applications.
+    </p>
+    <p
+      data-en="My experience in customer service and military administration strengthened my teamwork, organization and attention to detail."
+      data-el="Η εμπειρία μου στην εξυπηρέτηση πελατών και στη στρατιωτική διοικητική υποστήριξη ενίσχυσε την ομαδικότητα, την οργάνωση και την προσοχή στη λεπτομέρεια.">
+      My experience in customer service and military administration strengthened my teamwork, organization and attention to detail.
+    </p>
+    <div class="quote">“Build useful things. Keep learning.”</div>
+  </div>
+</section>
+
+<section class="sec reveal" id="skills">
+  <h2><span>02</span>/ SKILLS</h2>
+  <div class="skills">
+    <div class="skill"><strong>Python</strong><small>Backend & tools</small></div>
+    <div class="skill"><strong>Flutter</strong><small>Mobile development</small></div>
+    <div class="skill"><strong>Dart</strong><small>Cross-platform apps</small></div>
+    <div class="skill"><strong>FastAPI</strong><small>REST APIs</small></div>
+    <div class="skill"><strong>C / C++ / Java</strong><small>Programming</small></div>
+    <div class="skill"><strong>SQL / SQLite</strong><small>Databases</small></div>
+    <div class="skill"><strong>HTML / CSS / JS</strong><small>Web development</small></div>
+    <div class="skill"><strong>Git / GitHub</strong><small>Version control</small></div>
+    <div class="skill"><strong>Android Studio</strong><small>Development tools</small></div>
+  </div>
+</section>
+</div>
+
+<section class="sec reveal" id="project">
+  <h2>
+    <span>03</span>
+    <span data-en="/ FEATURED PROJECTS" data-el="/ ΕΡΓΑ">/ FEATURED PROJECTS</span>
+  </h2>
+
+  <!-- RIGOBSERVER -->
+  <div class="project">
+    <div class="project-summary">
+      <h3>RigObserver</h3>
+      <div class="tags">PYTHON · FASTAPI · C# · .NET 10 · JAVASCRIPT · SQLITE</div>
+
+      <p
+        data-en="A Windows desktop application for real-time PC hardware and system monitoring. RigObserver combines a customizable dashboard, live sensor readings, interactive performance charts, and configurable system alerts."
+        data-el="Εφαρμογή Windows για παρακολούθηση υλικού και συστήματος σε πραγματικό χρόνο. Περιλαμβάνει προσαρμόσιμο dashboard, μετρήσεις αισθητήρων, διαδραστικά γραφήματα επιδόσεων και ρυθμιζόμενες ειδοποιήσεις.">
+        A Windows desktop application for real-time PC hardware and system monitoring. RigObserver combines a customizable dashboard, live sensor readings, interactive performance charts, and configurable system alerts.
+      </p>
+
+      <ul>
+        <li
+          data-en="Live CPU, GPU, RAM, storage and network monitoring"
+          data-el="Ζωντανή παρακολούθηση CPU, GPU, RAM, αποθήκευσης και δικτύου">
+          Live CPU, GPU, RAM, storage and network monitoring
+        </li>
+        <li
+          data-en="Customizable dashboard with gauges, graphs and sensor widgets"
+          data-el="Προσαρμόσιμο dashboard με gauges, γραφήματα και widgets">
+          Customizable dashboard with gauges, graphs and sensor widgets
+        </li>
+        <li
+          data-en="Automatic hardware discovery and sensor readings"
+          data-el="Αυτόματη αναγνώριση υλικού και μετρήσεις αισθητήρων">
+          Automatic hardware discovery and sensor readings
+        </li>
+        <li
+          data-en="Historical metrics and configurable system alerts"
+          data-el="Ιστορικό μετρήσεων και ρυθμιζόμενες ειδοποιήσεις">
+          Historical metrics and configurable system alerts
+        </li>
+        <li
+          data-en="Standalone Windows desktop application with installer"
+          data-el="Αυτόνομη εφαρμογή Windows με πρόγραμμα εγκατάστασης">
+          Standalone Windows desktop application with installer
+        </li>
+      </ul>
+
+      <div class="project-actions">
+        <a class="btn primary"
+           href="https://github.com/KostasNikP/RigObserver"
+           target="_blank" rel="noopener"
+           data-en="View source code ↗"
+           data-el="Δες τον κώδικα ↗">
+          View source code ↗
+        </a>
+        <a class="btn"
+           href="https://github.com/KostasNikP/RigObserver/releases/tag/v0.1.0"
+           target="_blank" rel="noopener"
+           data-en="Download for Windows ↗"
+           data-el="Λήψη για Windows ↗">
+          Download for Windows ↗
+        </a>
+      </div>
+
+      <p style="font-size:12px;margin-top:18px"
+         data-en="Windows x64 · v0.1.0 · Open-source project"
+         data-el="Windows x64 · v0.1.0 · Έργο ανοιχτού κώδικα">
+        Windows x64 · v0.1.0 · Open-source project
+      </p>
+    </div>
+
+    <div class="project-media">
+      <div class="project-desktop">
+        <div class="project-desktop-bar">
+          <i></i><i></i><i></i>
+          <span>RigObserver — Live Monitoring</span>
+        </div>
+
+        <img
+          src="https://raw.githubusercontent.com/KostasNikP/RigObserver/main/demo.gif"
+          alt="RigObserver real-time hardware monitoring application demo"
+          loading="lazy"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='block';"
+        >
+        <div class="project-desktop-fallback">
+          RigObserver<br>
+          <a href="https://github.com/KostasNikP/RigObserver/blob/main/demo.gif"
+             target="_blank" rel="noopener">
+            View live demo ↗
+          </a>
+        </div>
+      </div>
+      <div class="project-media-caption"
+           data-en="Windows desktop application · Animated demo"
+           data-el="Εφαρμογή Windows · Κινούμενο demo">
+        Windows desktop application · Animated demo
       </div>
     </div>
-    <div class="project-media-caption" data-en="Mobile app demo · 30 sec" data-el="Demo εφαρμογής κινητού · 30 δευτ.">Mobile app demo · 30 sec</div>
   </div>
-</div></section>
-<div class="two"><section class="sec reveal" id="experience"><h2><span>04</span>/ EXPERIENCE</h2><div class="timeline"><div class="entry"><time>2026</time><div><strong>Reserve Infantry Corporal</strong><small>Administrative duties · G1 / G2 / G3 · Kos</small></div></div><div class="entry"><time>Jun–Aug 2025</time><div><strong>Bartender &amp; Head Waiter</strong><small>Pouda Beach Bar</small></div></div><div class="entry"><time>May–Sep 2023</time><div><strong>Head Waiter &amp; Cashier</strong><small>L'Atelier Bistro Bar</small></div></div><div class="entry"><time>May–Sep 2021</time><div><strong>Head Waiter &amp; Cashier</strong><small>Mirador Bar</small></div></div></div></section><section class="sec reveal" id="education"><h2><span>05</span>/ EDUCATION</h2><div class="timeline"><div class="entry"><time>2020–2025</time><div><strong>BSc Computer Science &amp; Telecommunications</strong><small>University of Ioannina</small></div></div><div class="entry"><time>2017–2020</time><div><strong>Information Technology</strong><small>Vocational High School of Aigio</small></div></div><div class="entry"><time>2026</time><div><strong>Microsoft Applied Skills</strong><small>Administer Active Directory Domain Services</small></div></div><div class="entry"><time>Certificate</time><div><strong>Teaching &amp; Pedagogical Competence</strong><small>University of Ioannina</small></div></div></div></section></div>
-<section class="sec reveal" id="contact"><h2><span>06</span>/ CONTACT</h2><p class="copy" data-en="Interested in working together? I'd be glad to connect." data-el="Θα χαρώ να επικοινωνήσουμε για ευκαιρίες συνεργασίας.">Interested in working together? I'd be glad to connect.</p><div class="contact"><a href="mailto:kostasnik19@gmail.com">kostasnik19@gmail.com ↗</a></div><div class="actions"><a class="btn" href="https://github.com/KostasNikP" target="_blank" rel="noopener">GitHub ↗</a><a class="btn" href="https://www.linkedin.com/in/konstantinos-nikolakopoulos-986a5a364/" target="_blank" rel="noopener">LinkedIn ↗</a></div></section>
-<footer class="foot"><span>© <span id="year"></span> Konstantinos Nikolakopoulos</span><span>Built with HTML · CSS · JavaScript</span></footer></div></div>
+
+  <!-- FLUTTER E-COMMERCE -->
+  <div class="project">
+    <div class="project-summary">
+      <h3>Flutter E-Commerce</h3>
+      <div class="tags">FLUTTER · DART · PROVIDER · MATERIAL 3</div>
+      <p
+        data-en="A responsive shopping application for mobile and web, with a searchable product catalog, saved items, cart management, and an end-to-end simulated checkout."
+        data-el="Responsive εφαρμογή αγορών για κινητό και web, με αναζήτηση προϊόντων, αγαπημένα, διαχείριση καλαθιού και δοκιμαστική ολοκλήρωση παραγγελίας.">
+        A responsive shopping application for mobile and web, with a searchable product catalog, saved items, cart management, and an end-to-end simulated checkout.
+      </p>
+      <ul>
+        <li data-en="Product search, filters and sorting" data-el="Αναζήτηση, φίλτρα και ταξινόμηση προϊόντων">
+          Product search, filters and sorting
+        </li>
+        <li data-en="Wishlist and live cart totals" data-el="Αγαπημένα και δυναμικό σύνολο καλαθιού">
+          Wishlist and live cart totals
+        </li>
+        <li data-en="Local order history and itemized receipts" data-el="Τοπικό ιστορικό παραγγελιών και αναλυτικές αποδείξεις">
+          Local order history and itemized receipts
+        </li>
+        <li data-en="Responsive design with dark and light themes" data-el="Responsive σχεδιασμός με dark και light theme">
+          Responsive design with dark and light themes
+        </li>
+      </ul>
+      <div class="project-actions">
+        <a class="btn primary"
+           href="https://github.com/KostasNikP/flutter-ecommerce-app"
+           target="_blank" rel="noopener"
+           data-en="View source code ↗"
+           data-el="Δες τον κώδικα ↗">
+          View source code ↗
+        </a>
+        <a class="btn"
+           href="https://github.com/KostasNikP/flutter-ecommerce-app#demo"
+           target="_blank" rel="noopener"
+           data-en="Project details ↗"
+           data-el="Περισσότερα ↗">
+          Project details ↗
+        </a>
+      </div>
+      <p style="font-size:12px;margin-top:18px"
+         data-en="Portfolio demonstration; checkout and authentication are simulated."
+         data-el="Επίδειξη portfolio: η σύνδεση και οι πληρωμές είναι δοκιμαστικές.">
+        Portfolio demonstration; checkout and authentication are simulated.
+      </p>
+    </div>
+    <div class="project-media">
+      <div class="project-phone">
+        <video id="project-demo"
+               muted playsinline autoplay loop controls preload="metadata"
+               aria-label="Video demonstration of the Flutter shopping app">
+          <source src="https://raw.githubusercontent.com/KostasNikP/flutter-ecommerce-app/main/media/tech_store_portfolio_demo.mp4" type="video/mp4">
+        </video>
+        <div class="project-preview" id="project-preview" role="img" aria-label="Flutter shopping app preview">
+          <div class="project-preview-icon">F</div>
+          <strong>Flutter E-Commerce</strong>
+          <small>Mobile-first storefront<br>Flutter · Dart · Provider</small>
+        </div>
+      </div>
+      <div class="project-media-caption"
+           data-en="Mobile app demo · 30 sec"
+           data-el="Demo εφαρμογής κινητού · 30 δευτ.">
+        Mobile app demo · 30 sec
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="two">
+<section class="sec reveal" id="experience">
+  <h2><span>04</span>/ EXPERIENCE</h2>
+  <div class="timeline">
+    <div class="entry">
+      <time>2026</time>
+      <div><strong>Reserve Infantry Corporal</strong><small>Administrative duties · G1 / G2 / G3 · Kos</small></div>
+    </div>
+    <div class="entry">
+      <time>Jun–Aug 2025</time>
+      <div><strong>Bartender &amp; Head Waiter</strong><small>Pouda Beach Bar</small></div>
+    </div>
+    <div class="entry">
+      <time>May–Sep 2023</time>
+      <div><strong>Head Waiter &amp; Cashier</strong><small>L'Atelier Bistro Bar</small></div>
+    </div>
+    <div class="entry">
+      <time>May–Sep 2021</time>
+      <div><strong>Head Waiter &amp; Cashier</strong><small>Mirador Bar</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec reveal" id="education">
+  <h2><span>05</span>/ EDUCATION</h2>
+  <div class="timeline">
+    <div class="entry">
+      <time>2020–2025</time>
+      <div><strong>BSc Computer Science &amp; Telecommunications</strong><small>University of Ioannina</small></div>
+    </div>
+    <div class="entry">
+      <time>2017–2020</time>
+      <div><strong>Information Technology</strong><small>Vocational High School of Aigio</small></div>
+    </div>
+    <div class="entry">
+      <time>2026</time>
+      <div><strong>Microsoft Applied Skills</strong><small>Administer Active Directory Domain Services</small></div>
+    </div>
+    <div class="entry">
+      <time>Certificate</time>
+      <div><strong>Teaching &amp; Pedagogical Competence</strong><small>University of Ioannina</small></div>
+    </div>
+  </div>
+</section>
+</div>
+
+<section class="sec reveal" id="contact">
+  <h2><span>06</span>/ CONTACT</h2>
+  <p class="copy"
+     data-en="Interested in working together? I'd be glad to connect."
+     data-el="Θα χαρώ να επικοινωνήσουμε για ευκαιρίες συνεργασίας.">
+    Interested in working together? I'd be glad to connect.
+  </p>
+  <div class="contact">
+    <a href="mailto:kostasnik19@gmail.com">kostasnik19@gmail.com ↗</a>
+  </div>
+  <div class="actions">
+    <a class="btn" href="https://github.com/KostasNikP" target="_blank" rel="noopener">GitHub ↗</a>
+    <a class="btn" href="https://www.linkedin.com/in/konstantinos-nikolakopoulos-986a5a364/" target="_blank" rel="noopener">LinkedIn ↗</a>
+  </div>
+</section>
+
+<footer class="foot">
+  <span>© <span id="year"></span> Konstantinos Nikolakopoulos</span>
+  <span>Built with HTML · CSS · JavaScript</span>
+</footer>
+
+</div>
+</div>
+
 <script>
-(()=>{const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s);$('#year').textContent=new Date().getFullYear();let lang=localStorage.getItem('portfolio-lang')||'en';function applyLang(){document.documentElement.lang=lang;$$('[data-en]').forEach(e=>{e.textContent=e.dataset[lang]});$('#lang').textContent=lang==='en'?'EL':'EN'}$('#lang').onclick=()=>{lang=lang==='en'?'el':'en';localStorage.setItem('portfolio-lang',lang);applyLang()};applyLang();if(localStorage.getItem('portfolio-theme')==='light')document.body.classList.add('light');$('#theme').onclick=()=>{document.body.classList.toggle('light');localStorage.setItem('portfolio-theme',document.body.classList.contains('light')?'light':'dark')};const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;function hack(){if(reduced)return;const els=[$('#first'),$('#last')],chars='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#$%&',original=els.map(e=>e.dataset.text);els.forEach((e,j)=>{let frame=0;const target=original[j],steps=24;const timer=setInterval(()=>{frame++;const count=Math.floor(frame/steps*target.length);e.textContent=target.split('').map((c,i)=>c===' '||i<count?c:chars[Math.floor(Math.random()*chars.length)]).join('');if(frame>=steps){clearInterval(timer);e.textContent=target;e.classList.add('run');setTimeout(()=>e.classList.remove('run'),750)}},38)})}setTimeout(hack,300);$('#first').parentElement.addEventListener('mouseenter',hack);if('IntersectionObserver'in window&&!reduced){const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');ob.unobserve(e.target)}}),{threshold:.08});$$('.reveal').forEach(e=>ob.observe(e))}else $$('.reveal').forEach(e=>e.classList.add('show'));const demoVideo=$('#project-demo'),demoPreview=$('#project-preview');if(demoVideo&&demoPreview){demoVideo.addEventListener('loadeddata',()=>{demoVideo.style.display='block';demoPreview.style.display='none'});demoVideo.addEventListener('error',()=>{demoVideo.style.display='none';demoPreview.style.display='flex'})};const links=$('.nav a');links.forEach(a=>a.addEventListener('click',()=>{links.forEach(x=>x.classList.remove('active'));a.classList.add('active')}))})();
-</script></body></html>
+(()=>{
+  const $=s=>document.querySelector(s);
+  const $$=s=>document.querySelectorAll(s);
+
+  $('#year').textContent=new Date().getFullYear();
+
+  let lang=localStorage.getItem('portfolio-lang')||'en';
+
+  function applyLang(){
+    document.documentElement.lang=lang;
+    $$('[data-en]').forEach(e=>{
+      e.textContent=e.dataset[lang];
+    });
+    $('#lang').textContent=lang==='en'?'EL':'EN';
+  }
+
+  $('#lang').onclick=()=>{
+    lang=lang==='en'?'el':'en';
+    localStorage.setItem('portfolio-lang',lang);
+    applyLang();
+  };
+
+  applyLang();
+
+  if(localStorage.getItem('portfolio-theme')==='light'){
+    document.body.classList.add('light');
+  }
+
+  $('#theme').onclick=()=>{
+    document.body.classList.toggle('light');
+    localStorage.setItem(
+      'portfolio-theme',
+      document.body.classList.contains('light')?'light':'dark'
+    );
+  };
+
+  const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function hack(){
+    if(reduced)return;
+    const els=[$('#first'),$('#last')];
+    const chars='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#$%&';
+    const original=els.map(e=>e.dataset.text);
+
+    els.forEach((e,j)=>{
+      let frame=0;
+      const target=original[j];
+      const steps=24;
+
+      const timer=setInterval(()=>{
+        frame++;
+        const count=Math.floor(frame/steps*target.length);
+
+        e.textContent=target.split('').map((c,i)=>
+          c===' '||i<count
+            ?c
+            :chars[Math.floor(Math.random()*chars.length)]
+        ).join('');
+
+        if(frame>=steps){
+          clearInterval(timer);
+          e.textContent=target;
+          e.classList.add('run');
+          setTimeout(()=>e.classList.remove('run'),750);
+        }
+      },38);
+    });
+  }
+
+  setTimeout(hack,300);
+  $('#first').parentElement.addEventListener('mouseenter',hack);
+
+  if('IntersectionObserver' in window&&!reduced){
+    const ob=new IntersectionObserver(es=>
+      es.forEach(e=>{
+        if(e.isIntersecting){
+          e.target.classList.add('show');
+          ob.unobserve(e.target);
+        }
+      }),{threshold:.08}
+    );
+    $$('.reveal').forEach(e=>ob.observe(e));
+  }else{
+    $$('.reveal').forEach(e=>e.classList.add('show'));
+  }
+
+  const demoVideo=$('#project-demo');
+  const demoPreview=$('#project-preview');
+
+  if(demoVideo&&demoPreview){
+    demoVideo.addEventListener('loadeddata',()=>{
+      demoVideo.style.display='block';
+      demoPreview.style.display='none';
+    });
+
+    demoVideo.addEventListener('error',()=>{
+      demoVideo.style.display='none';
+      demoPreview.style.display='flex';
+    });
+
+    const demoSource=demoVideo.querySelector('source');
+    if(demoSource){
+      demoSource.addEventListener('error',()=>{
+        demoVideo.style.display='none';
+        demoPreview.style.display='flex';
+      });
+    }
+  }
+
+  const links=$$('.nav a');
+  links.forEach(a=>a.addEventListener('click',()=>{
+    links.forEach(x=>x.classList.remove('active'));
+    a.classList.add('active');
+  }));
+})();
+</script>
+</body>
+</html>
