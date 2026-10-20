@@ -377,6 +377,10 @@ h2 span{color:var(--blue);margin-right:15px}
 .demo-modal-head{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:10px 16px;border-bottom:1px solid #263149;font:13px var(--mono)}
 .demo-modal-close{flex:none;border:1px solid #40516a;background:#132136;color:#fff;border-radius:8px;padding:5px 11px;cursor:pointer;font-size:18px}
 .demo-modal img{display:block;width:auto;height:auto;max-width:100%;max-height:calc(96vh - 65px);margin:auto;object-fit:contain}
+.flutter-open{position:absolute;inset:0;z-index:3;display:block;width:100%;height:100%;padding:0;border:0;background:transparent;cursor:zoom-in;color:#fff}
+.flutter-open:focus-visible{outline:3px solid var(--blue);outline-offset:-5px}
+.flutter-open .rig-zoom-hint{bottom:12px;right:8px}
+.demo-modal video{display:block;width:auto;height:auto;max-width:100%;max-height:calc(96vh - 65px);margin:auto;object-fit:contain;background:#000}
 .timeline{display:grid;gap:16px}
 .entry{
   display:grid;
@@ -748,10 +752,13 @@ body.light .terminal pre{color:#d4e1ff}
     <div class="project-media">
       <div class="project-phone">
         <video id="project-demo"
-               muted playsinline autoplay loop controls preload="metadata"
+               muted playsinline autoplay loop preload="metadata"
                aria-label="Video demonstration of the Flutter shopping app">
           <source src="https://raw.githubusercontent.com/KostasNikP/flutter-ecommerce-app/main/media/tech_store_portfolio_demo.mp4" type="video/mp4">
         </video>
+        <button type="button" class="flutter-open" id="flutter-open" aria-label="Open Flutter E-Commerce demo in a large window">
+          <span class="rig-zoom-hint" data-en="Expand demo ↗" data-el="Μεγέθυνση demo ↗">Expand demo ↗</span>
+        </button>
         <div class="project-preview" id="project-preview" role="img" aria-label="Flutter shopping app preview">
           <div class="project-preview-icon">F</div>
           <strong>Flutter E-Commerce</strong>
@@ -836,6 +843,15 @@ body.light .terminal pre{color:#d4e1ff}
 
 </div>
 </div>
+
+<dialog class="demo-modal" id="flutter-modal" aria-label="Flutter E-Commerce enlarged video demo">
+  <div class="demo-modal-head"><span>Flutter E-Commerce — Demo</span>
+    <button type="button" class="demo-modal-close" id="flutter-close" aria-label="Close Flutter demo">×</button>
+  </div>
+  <video id="flutter-modal-video" controls playsinline preload="metadata" aria-label="Flutter E-Commerce full video demonstration">
+    <source src="https://raw.githubusercontent.com/KostasNikP/flutter-ecommerce-app/main/media/tech_store_portfolio_demo.mp4" type="video/mp4">
+  </video>
+</dialog>
 
 <dialog class="demo-modal" id="rigobserver-modal" aria-label="RigObserver enlarged demo">
   <div class="demo-modal-head">
@@ -962,26 +978,60 @@ body.light .terminal pre{color:#d4e1ff}
     rigModal.addEventListener('click',e=>{if(e.target===rigModal)rigModal.close()});
   }
 
-  // Track the visible section during scrolling (including paired columns).
-  const sections=[...$('.nav a[href^="#"]')].map(link=>({link,element:document.getElementById(link.getAttribute('href').slice(1))})).filter(x=>x.element);
-  let navScheduled=false;
+  // Flutter expands into a full-size video viewer without cropping.
+  const flutterOpen=$('#flutter-open'),flutterModal=$('#flutter-modal'),flutterVideo=$('#flutter-modal-video');
+  if(flutterOpen&&flutterModal&&flutterVideo){
+    flutterOpen.addEventListener('click',()=>{
+      flutterModal.showModal();
+      if(demoVideo&&flutterVideo.readyState>=1)flutterVideo.currentTime=demoVideo.currentTime;
+      flutterVideo.play().catch(()=>{});
+    });
+    $('#flutter-close').addEventListener('click',()=>flutterModal.close());
+    flutterModal.addEventListener('click',e=>{if(e.target===flutterModal)flutterModal.close()});
+    flutterModal.addEventListener('close',()=>flutterVideo.pause());
+  }
+
+  // Highlight exactly one navigation section on click and scroll.
+  const sections=[...$$('.nav a[href^="#"]')].map(link=>({
+    link,element:document.getElementById(link.getAttribute('href').slice(1))
+  })).filter(x=>x.element);
+  let navScheduled=false,preferredLink=null;
   function updateActiveNav(){
     navScheduled=false;
-    const marker=window.innerHeight*.34;
-    const visible=sections.filter(x=>{const r=x.element.getBoundingClientRect();return r.top<=marker&&r.bottom>marker});
-    const fallback=[...sections].reverse().find(x=>x.element.getBoundingClientRect().top<=marker)||sections[0];
+    if(!sections.length)return;
+    const marker=window.innerHeight*.38;
+    const visible=sections.filter(x=>{
+      const bounds=x.element.getBoundingClientRect();
+      return bounds.top<=marker&&bounds.bottom>marker;
+    });
+    let current;
+    if(visible.length){
+      current=visible.find(x=>x.link===preferredLink)||visible[0];
+      if(!visible.some(x=>x.link===preferredLink))preferredLink=null;
+    }else{
+      current=[...sections].reverse().find(x=>x.element.getBoundingClientRect().top<=marker)||sections[0];
+      preferredLink=null;
+    }
     sections.forEach(x=>{
-      const active=visible.length?visible.includes(x):x===fallback;
+      const active=x===current;
       x.link.classList.toggle('active',active);
       if(active)x.link.setAttribute('aria-current','location');
       else x.link.removeAttribute('aria-current');
     });
   }
   function scheduleNav(){if(!navScheduled){navScheduled=true;requestAnimationFrame(updateActiveNav)}}
+  sections.forEach(x=>x.link.addEventListener('click',()=>{
+    preferredLink=x.link;
+    sections.forEach(z=>{
+      z.link.classList.toggle('active',z===x);
+      if(z===x)z.link.setAttribute('aria-current','location');
+      else z.link.removeAttribute('aria-current');
+    });
+    setTimeout(scheduleNav,350);
+  }));
   window.addEventListener('scroll',scheduleNav,{passive:true});
   window.addEventListener('resize',scheduleNav);
   window.addEventListener('hashchange',scheduleNav);
-  sections.forEach(x=>x.link.addEventListener('click',()=>{sections.forEach(z=>z.link.classList.remove('active'));x.link.classList.add('active')}));
   scheduleNav();
 })();
 </script>
