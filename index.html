@@ -995,7 +995,7 @@ body.light .terminal pre{color:#d4e1ff}
   const sections=[...$$('.nav a[href^="#"]')].map(link=>({
     link,element:document.getElementById(link.getAttribute('href').slice(1))
   })).filter(x=>x.element);
-  let navScheduled=false,preferredLink=null;
+  let navScheduled=false,preferredLink=null,preferredReached=false;
   function updateActiveNav(){
     navScheduled=false;
     if(!sections.length)return;
@@ -1006,11 +1006,13 @@ body.light .terminal pre{color:#d4e1ff}
     });
     let current;
     if(visible.length){
-      current=visible.find(x=>x.link===preferredLink)||visible[0];
-      if(!visible.some(x=>x.link===preferredLink))preferredLink=null;
+      const preferred=visible.find(x=>x.link===preferredLink);
+      current=preferred||visible[0];
+      if(preferred)preferredReached=true;
+      else if(preferredReached){preferredLink=null;preferredReached=false;}
     }else{
       current=[...sections].reverse().find(x=>x.element.getBoundingClientRect().top<=marker)||sections[0];
-      preferredLink=null;
+      if(preferredReached){preferredLink=null;preferredReached=false;}
     }
     sections.forEach(x=>{
       const active=x===current;
@@ -1022,6 +1024,7 @@ body.light .terminal pre{color:#d4e1ff}
   function scheduleNav(){if(!navScheduled){navScheduled=true;requestAnimationFrame(updateActiveNav)}}
   sections.forEach(x=>x.link.addEventListener('click',()=>{
     preferredLink=x.link;
+    preferredReached=false;
     sections.forEach(z=>{
       z.link.classList.toggle('active',z===x);
       if(z===x)z.link.setAttribute('aria-current','location');
